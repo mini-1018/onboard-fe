@@ -13,19 +13,31 @@ import {
   FaImage,
 } from "react-icons/fa";
 import { uploadImage } from "../api/image/uploadImage";
+import { createPost } from "../api/post/post";
 
 interface PostData {
   title: string;
   content: string;
+  tags: string[];
 }
 
 export default function WritePost() {
   const [postData, setPostData] = useState<PostData>({
     title: "",
     content: "",
+    tags: [],
   });
+  const [tagInput, setTagInput] = useState<string>("");
 
   const router = useRouter();
+
+  const postClick = async () => {
+    try {
+      await createPost(postData);
+    } catch (error) {
+      console.error("게시글 등록 실패:", error);
+    }
+  };
 
   // 마크다운 문법 글
   const toggleMarkdown = (syntax: string, placeholder?: string) => {
@@ -167,6 +179,26 @@ export default function WritePost() {
     }
   };
 
+  const handleTagInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && tagInput.trim()) {
+      e.preventDefault();
+      if (!postData.tags.includes(tagInput.trim())) {
+        setPostData({
+          ...postData,
+          tags: [...postData.tags, tagInput.trim()],
+        });
+      }
+      setTagInput("");
+    }
+  };
+
+  const removeTag = (indexToRemove: number) => {
+    setPostData({
+      ...postData,
+      tags: postData.tags.filter((_, index) => index !== indexToRemove),
+    });
+  };
+
   return (
     <div className="max-w-6xl mx-auto p-6">
       {/* 제목 입력 */}
@@ -268,6 +300,46 @@ export default function WritePost() {
         </div>
       </div>
 
+      {/* 태그 입력 섹션 */}
+      <div className="mt-6 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-2">
+          {postData.tags.map((tag, index) => (
+            <div
+              key={index}
+              className="group flex items-center gap-1 px-2 py-0.5 bg-gray-100 hover:bg-yellow rounded-md text-sm text-primary transition-colors"
+            >
+              <span className="text-[13px]">{tag}</span>
+              <button
+                onClick={() => removeTag(index)}
+                className=" text-primary"
+              >
+                <svg
+                  className="w-3 h-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          ))}
+          <input
+            type="text"
+            value={tagInput}
+            onChange={(e) => setTagInput(e.target.value)}
+            onKeyDown={handleTagInputKeyDown}
+            placeholder={"태그를 입력하세요(5개 제한)"}
+            className="flex-grow min-w-[120px] px-1 py-0.5 text-sm bg-transparent focus:outline-none"
+          />
+        </div>
+      </div>
+
       {/* 하단 버튼 */}
       <div className="flex justify-end gap-2 mt-4">
         <button
@@ -277,14 +349,7 @@ export default function WritePost() {
           임시저장
         </button>
         <button
-          onClick={async () => {
-            try {
-              // await axios.post("/api/posts", postData);
-              router.push("/posts");
-            } catch (error) {
-              console.error("게시글 등록 실패:", error);
-            }
-          }}
+          onClick={postClick}
           className="px-4 py-2 text-sm text-white bg-primary font-bold hover:bg-primary-hover rounded"
         >
           등록하기
