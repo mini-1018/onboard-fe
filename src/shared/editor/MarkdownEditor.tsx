@@ -37,6 +37,7 @@ export default function WritePost() {
     } catch (error) {
       console.error("게시글 등록 실패:", error);
     }
+    router.push("/posts");
   };
 
   // 마크다운 문법 글

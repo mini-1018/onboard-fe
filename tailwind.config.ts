@@ -14,7 +14,7 @@ export default {
         pink: "#DA5380",
         yellow: "#FFCB00",
         "yellow-hover": "#FFFF8F",
-        "primary-hover": "#2563eb",
+        "primary-hover": "#007CCE",
         secondary: "#000000",
         accent: "#000000",
       },

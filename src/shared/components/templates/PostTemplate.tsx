@@ -1,21 +1,19 @@
 "use client";
 import Image from "next/image";
-import { stripMarkdown, extractFirstImage } from "../editor/markdown.util";
+import {
+  stripMarkdown,
+  extractFirstImage,
+} from "@/shared/editor/markdown.util";
 import { Post } from "@/shared/types";
 
 export default function PostTemplate({
-  key,
   post,
 }: {
-  key: number;
   post: Post;
 }): React.ReactNode {
   const { title, content, tags, user, likes, createdAt, comments } = post;
   return (
-    <div
-      className="flex flex-col items-center justify-center w-[340px] h-[400px] rounded-lg shadow-primary"
-      key={key}
-    >
+    <div className="flex flex-col items-center justify-center w-[340px] h-[400px] rounded-lg shadow-primary">
       <div className="relative w-full h-[200px] rounded-t-lg overflow-hidden">
         <Image src={extractFirstImage(content)} alt="게시글 이미지" fill />
       </div>
