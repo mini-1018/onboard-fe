@@ -12,8 +12,8 @@ import {
   FaQuoteLeft,
   FaImage,
 } from "react-icons/fa";
-import { uploadImage } from "../api/image/uploadImage";
-import { createPost } from "../api/post/post";
+import { uploadImage } from "../../entities/image/uploadImage";
+import { createPost } from "../../entities/post/api/post";
 
 interface PostData {
   title: string;

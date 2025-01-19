@@ -1,10 +1,10 @@
-import { httpClient } from "@/shared/api/httpClient";
+import { axiosInstance } from "@/shared/api/axios";
 
 export const uploadImage = async (file: File) => {
   const formData = new FormData();
   formData.append("file", file);
 
-  const response = await httpClient.post("/images", formData, {
+  const response = await axiosInstance.post("/images", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
