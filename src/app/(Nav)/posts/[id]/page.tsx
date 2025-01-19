@@ -1,4 +1,4 @@
-import { getPostById } from "@/shared/api/post/post";
+import { getPostById } from "@/entities/post/api/post";
 import { RouteParams } from "@/shared/types";
 import PostMainContent from "./PostMainContent";
 

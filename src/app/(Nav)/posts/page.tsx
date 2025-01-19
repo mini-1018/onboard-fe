@@ -1,7 +1,13 @@
-import { getPosts } from "@/shared/api/post/post";
+import { getPosts } from "@/entities/post/api/post";
 import PostList from "./PostList";
+import { Suspense } from "react";
+import PostSkeletonTemplate from "@/entities/post/ui/PostSkeletonTemplate";
 
 export default async function Posts() {
-  const posts = await getPosts();
-  return <PostList posts={posts} />;
+  const initialData = await getPosts({ limit: 20, orderBy: "latest" });
+  return (
+    <Suspense fallback={<PostSkeletonTemplate />}>
+      <PostList initialData={initialData} />
+    </Suspense>
+  );
 }
