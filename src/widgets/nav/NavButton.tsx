@@ -5,10 +5,12 @@ import Modal from "@/shared/components/modal/Modal";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 export default function NavButton() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const { data: session } = useSession();
 
   const openModal = () => {
     setIsOpen(true);
@@ -26,7 +28,11 @@ export default function NavButton() {
       <Link href="/posts/create">
         <Button>글작성</Button>
       </Link>
-      <Button onClick={openModal}>로그인</Button>
+      {session ? (
+        <span>{session.user.name}</span>
+      ) : (
+        <Button onClick={openModal}>로그인</Button>
+      )}
       {isOpen && (
         <Modal closeModal={closeModal}>
           <SigninForm />

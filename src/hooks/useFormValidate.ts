@@ -44,6 +44,7 @@ export type SignUpFormData = z.infer<typeof signUpSchema>;
 
 export const useSignInForm = () => {
   const {
+    getValues,
     register,
     handleSubmit,
     formState: { errors, isValid },
@@ -53,6 +54,7 @@ export const useSignInForm = () => {
   });
 
   return {
+    getValues,
     register,
     handleSubmit,
     errors,
@@ -62,6 +64,7 @@ export const useSignInForm = () => {
 
 export const useSignUpForm = () => {
   const {
+    getValues,
     register,
     handleSubmit,
     formState: { errors, isValid },
@@ -71,6 +74,7 @@ export const useSignUpForm = () => {
   });
 
   return {
+    getValues,
     register,
     handleSubmit,
     errors,

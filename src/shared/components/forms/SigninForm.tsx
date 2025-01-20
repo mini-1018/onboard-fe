@@ -6,13 +6,24 @@ import InputError from "@/shared/components/inputs/InputError";
 import InputLabel from "@/shared/components/inputs/InputLabel";
 import Logo from "@/shared/components/Images/Logo";
 import Button from "@/shared/components/buttons/Button";
+import { signIn } from "next-auth/react";
 
 export default function SigninForm({ isSignup = false }) {
   const { register, handleSubmit, errors, isValid } = useSignInForm();
 
-  const onSubmit = (data: SignInFormData) => {
-    console.log(data);
+  const onSubmit = async (data: SignInFormData) => {
+    try {
+      await signIn("credentials", {
+        email: data.email,
+        password: data.password,
+        redirect: true,
+        callbackUrl: "/posts",
+      });
+    } catch (error) {
+      console.error("로그인 에러:", error);
+    }
   };
+
   return (
     <div
       className={

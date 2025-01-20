@@ -4,7 +4,7 @@ import PromptFont from "@/shared/font/PromptFont";
 import NavButton from "./NavButton";
 import Link from "next/link";
 
-export default function Nav(): React.ReactNode {
+export default async function Nav() {
   return (
     <div className="bg-white h-[60px] w-[100%] flex items-center justify-between gap-[20px] border-b border-primary mb-[20px]">
       <div className="flex items-center justify-center gap-[20px]">
