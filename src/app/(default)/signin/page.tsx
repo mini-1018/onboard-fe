@@ -1,5 +1,11 @@
-import SigninForm from "@/shared/components/forms/SigninForm";
+import SigninForm from "@/app/(Default)/signin/SigninForm";
+import Loading from "@/shared/components/loading";
+import { Suspense } from "react";
 
 export default function SigninPage() {
-  return <SigninForm isSignup={true} />;
+  return (
+    <Suspense fallback={<Loading />}>
+      <SigninForm isSignup={true} />
+    </Suspense>
+  );
 }

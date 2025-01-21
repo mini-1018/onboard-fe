@@ -1,5 +1,11 @@
-import SignupForm from "@/shared/components/forms/SignupForm";
+import SignupForm from "@/app/(Default)/signup/SignupForm";
+import Loading from "@/shared/components/loading";
+import { Suspense } from "react";
 
 export default function SignupPage() {
-  return <SignupForm />;
+  return (
+    <Suspense fallback={<Loading />}>
+      <SignupForm />
+    </Suspense>
+  );
 }

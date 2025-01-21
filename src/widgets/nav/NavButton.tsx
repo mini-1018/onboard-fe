@@ -1,16 +1,20 @@
 "use client";
 import Button from "@/shared/components/buttons/Button";
-import SigninForm from "@/shared/components/forms/SigninForm";
+import SigninForm from "@/app/(Default)/signin/SigninForm";
 import Modal from "@/shared/components/modal/Modal";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
+import Dropdown from "@/shared/components/dropdown/Dropdown";
 
 export default function NavButton() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { data: session } = useSession();
+
+  console.log(session?.user);
 
   const openModal = () => {
     setIsOpen(true);
@@ -24,12 +28,22 @@ export default function NavButton() {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-10">
       <Link href="/posts/create">
         <Button>글작성</Button>
       </Link>
       {session ? (
-        <span>{session.user.name}</span>
+        <div className="flex items-center">
+          <div className="flex items-center gap-2 w-10 h-10 relative rounded-full">
+            <Image
+              src={`${session.user.image}`}
+              alt="profile"
+              fill
+              className="rounded-full"
+            />
+          </div>
+          <Dropdown />
+        </div>
       ) : (
         <Button onClick={openModal}>로그인</Button>
       )}

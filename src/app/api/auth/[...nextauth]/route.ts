@@ -20,6 +20,7 @@ export const authOptions = {
             id: response.id,
             email: response.email,
             name: response.name,
+            image: response.image[0].url,
           };
         } catch (error) {
           return null;
@@ -41,6 +42,7 @@ export const authOptions = {
         token.id = user.id;
         token.email = user.email;
         token.name = user.name;
+        token.image = user.image;
       }
       return token;
     },
@@ -50,6 +52,7 @@ export const authOptions = {
           id: token.id,
           name: token.name,
           email: token.email,
+          image: token.image,
         };
       }
       return session;

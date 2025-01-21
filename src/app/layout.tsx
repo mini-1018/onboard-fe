@@ -5,6 +5,7 @@ import QueryProvider from "@/shared/api/QueryProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
+import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: "OnBoard",
@@ -21,7 +22,10 @@ export default async function RootLayout({
     <html>
       <body>
         <QueryProvider>
-          <AuthProvider session={session}>{children}</AuthProvider>
+          <AuthProvider session={session}>
+            {children}
+            <ToastContainer />
+          </AuthProvider>
           <ReactQueryDevtools initialIsOpen={true} />
         </QueryProvider>
       </body>
