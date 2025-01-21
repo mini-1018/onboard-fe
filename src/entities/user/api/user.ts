@@ -8,3 +8,13 @@ export const signin = async ({ email, password }: Signin) => {
   });
   return response.data;
 };
+
+export const signup = async (formData: FormData) => {
+  const response = await axiosInstance.post("/users/signup", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  return response.data;
+};

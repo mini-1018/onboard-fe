@@ -28,6 +28,11 @@ const signUpSchema = z
       .min(8, "비밀번호는 최소 8자 이상이어야 합니다")
       .max(20, "비밀번호는 최대 20자까지 가능합니다"),
     confirmPassword: z.string().min(1, "비밀번호 확인을 입력해주세요"),
+    image: z
+      .any()
+      .refine((value) => value instanceof FileList)
+      .transform((list) => list.item(0))
+      .refine((file) => file instanceof File, "프로필 이미지를 첨부해주세요"),
   })
   .superRefine(({ password, confirmPassword }, ctx) => {
     if (password !== confirmPassword) {
