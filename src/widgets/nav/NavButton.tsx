@@ -14,8 +14,6 @@ export default function NavButton() {
   const pathname = usePathname();
   const { data: session } = useSession();
 
-  console.log(session?.user);
-
   const openModal = () => {
     setIsOpen(true);
     window.history.pushState({ previousPath: pathname }, "", "/signin");
@@ -42,7 +40,7 @@ export default function NavButton() {
               className="rounded-full"
             />
           </div>
-          <Dropdown />
+          <Dropdown type="nav" />
         </div>
       ) : (
         <Button onClick={openModal}>로그인</Button>
