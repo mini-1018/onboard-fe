@@ -13,32 +13,32 @@ import {
   FaImage,
 } from "react-icons/fa";
 import { uploadImage } from "../../entities/image/uploadImage";
-import { createPost } from "../../entities/post/api/post";
+import { PostData } from "../types";
+import { toast } from "react-toastify";
+import Button from "../components/buttons/Button";
 
-interface PostData {
-  title: string;
-  content: string;
-  tags: string[];
+interface MarkdownEditorProps {
+  initialPost?: PostData | null;
+  onSubmit: (postData: PostData) => void;
+  buttonText: string;
 }
 
-export default function WritePost() {
+export default function MarkdownEditor({
+  initialPost,
+  onSubmit,
+  buttonText,
+}: MarkdownEditorProps) {
   const [postData, setPostData] = useState<PostData>({
-    title: "",
-    content: "",
-    tags: [],
+    id: initialPost?.id || undefined,
+    title: initialPost?.title || "",
+    content: initialPost?.content || "",
+    tags: initialPost?.tags || [],
   });
+
+  console.log(postData);
   const [tagInput, setTagInput] = useState<string>("");
 
   const router = useRouter();
-
-  const postClick = async () => {
-    try {
-      await createPost(postData);
-    } catch (error) {
-      console.error("게시글 등록 실패:", error);
-    }
-    router.push("/posts");
-  };
 
   // 마크다운 문법 글
   const toggleMarkdown = (syntax: string, placeholder?: string) => {
@@ -175,7 +175,7 @@ export default function WritePost() {
           textArea.focus();
         }, 0);
       } catch (error) {
-        console.error("이미지 업로드 실패:", error);
+        toast.error("이미지 업로드에 실패했습니다.");
       }
     }
   };
@@ -183,10 +183,10 @@ export default function WritePost() {
   const handleTagInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && tagInput.trim()) {
       e.preventDefault();
-      if (!postData.tags.includes(tagInput.trim())) {
+      if (!postData.tags?.includes(tagInput.trim())) {
         setPostData({
           ...postData,
-          tags: [...postData.tags, tagInput.trim()],
+          tags: [...(postData.tags || []), tagInput.trim()],
         });
       }
       setTagInput("");
@@ -196,7 +196,7 @@ export default function WritePost() {
   const removeTag = (indexToRemove: number) => {
     setPostData({
       ...postData,
-      tags: postData.tags.filter((_, index) => index !== indexToRemove),
+      tags: postData.tags?.filter((_, index) => index !== indexToRemove),
     });
   };
 
@@ -304,7 +304,7 @@ export default function WritePost() {
       {/* 태그 입력 섹션 */}
       <div className="mt-6 mb-4">
         <div className="flex flex-wrap gap-1.5 mb-2">
-          {postData.tags.map((tag, index) => (
+          {postData.tags?.map((tag, index) => (
             <div
               key={index}
               className="group flex items-center gap-1 px-2 py-0.5 bg-gray-100 hover:bg-yellow rounded-md text-sm text-primary transition-colors"
@@ -343,18 +343,12 @@ export default function WritePost() {
 
       {/* 하단 버튼 */}
       <div className="flex justify-end gap-2 mt-4">
-        <button
-          onClick={() => router.back()}
-          className="px-4 py-2 text-sm text-black font-bold bg-yellow hover:bg-yellow-hover rounded"
-        >
-          임시저장
-        </button>
-        <button
-          onClick={postClick}
-          className="px-4 py-2 text-sm text-white bg-primary font-bold hover:bg-primary-hover rounded"
-        >
-          등록하기
-        </button>
+        <Button onClick={() => router.back()} variant="yellow">
+          취소
+        </Button>
+        <Button onClick={() => onSubmit(postData)} variant="primary">
+          {buttonText}
+        </Button>
       </div>
     </div>
   );

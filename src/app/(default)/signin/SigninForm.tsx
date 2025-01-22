@@ -8,21 +8,27 @@ import Logo from "@/shared/components/Images/Logo";
 import Button from "@/shared/components/buttons/Button";
 import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 export default function SigninForm({ isSignup = false }) {
+  const router = useRouter();
   const { register, handleSubmit, errors, isValid } = useSignInForm();
 
   const onSubmit = async (data: SignInFormData) => {
     try {
-      await signIn("credentials", {
+      const result = await signIn("credentials", {
         email: data.email,
         password: data.password,
-        redirect: true,
-        callbackUrl: "/posts",
+        redirect: false,
       });
-      toast.success("로그인이 완료되었습니다.");
+      if (result?.ok) {
+        toast.success("로그인이 완료되었습니다.");
+        router.push("/posts");
+      } else {
+        toast.error("이메일 또는 비밀번호를 확인해주세요.");
+      }
     } catch (error) {
-      toast.error("로그인에 실패했습니다.");
+      toast.error("이메일 또는 비밀번호를 확인해주세요.");
     }
   };
 

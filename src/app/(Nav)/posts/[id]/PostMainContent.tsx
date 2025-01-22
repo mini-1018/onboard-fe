@@ -1,12 +1,16 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Post } from "@/shared/types";
+import PostDropdown from "./PostDropdown";
 
 export default function PostMainContent({ post }: { post: Post }) {
   return (
     <div className="w-[100%] flex items-center justify-center">
       <div className="w-[50%] flex flex-col items-left">
-        <h1>{post.title}</h1>
+        <div className="flex justify-between items-center w-full">
+          <h1>{post.title}</h1>
+          <PostDropdown post={post} />
+        </div>
         <div className="flex justify-between w-full">
           <div className="flex gap-x-[10px]">
             <p>by {post.user.name}</p>

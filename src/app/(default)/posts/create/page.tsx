@@ -1,6 +1,6 @@
 import Loading from "@/shared/components/loading";
-import MarkdownEditor from "@/shared/editor/MarkdownEditor";
 import React, { Suspense } from "react";
+import CreateEditor from "./createEditor";
 
 const LazyComponent = React.lazy(
   () =>
@@ -15,7 +15,7 @@ const LazyComponent = React.lazy(
 export default function CreatePostPage() {
   return (
     <Suspense fallback={<Loading />}>
-      <MarkdownEditor />
+      <CreateEditor />
       <LazyComponent />
     </Suspense>
   );
