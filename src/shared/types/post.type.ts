@@ -15,16 +15,23 @@ export interface PostResponse {
   nextCursor?: number;
 }
 
-export interface CreatePost {
-  title: string;
-  content: string;
-  tags?: string[];
-}
-
 export interface GetPostsParams {
   cursor?: number;
   limit?: number;
   tags?: string;
   search?: string;
   orderBy?: string;
+}
+
+export interface PostData {
+  id?: number;
+  title: string;
+  content: string;
+  tags?: string[];
+}
+
+export interface PostState {
+  post: PostData | null;
+  setPost: (post: PostData | null) => void;
+  clearPost: () => void;
 }

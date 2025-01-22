@@ -1,4 +1,4 @@
-import { CreatePost, GetPostsParams } from "@/shared/types";
+import { GetPostsParams, PostData } from "@/shared/types";
 import { axiosInstance } from "@/shared/api/axios";
 
 export const getPosts = async (params?: GetPostsParams) => {
@@ -11,7 +11,12 @@ export const getPostById = async (id: string) => {
   return response.data;
 };
 
-export const createPost = async (post: CreatePost) => {
-  const response = await axiosInstance.post("/posts", post);
+export const createPost = async (post: PostData, userId: string) => {
+  const response = await axiosInstance.post("/posts", { ...post, userId });
+  return response.data;
+};
+
+export const updatePost = async (post: PostData) => {
+  const response = await axiosInstance.patch("/posts", post);
   return response.data;
 };

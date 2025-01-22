@@ -3,6 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { signin } from "@/entities/user/api/user";
+import { JWT } from "next-auth/jwt";
 
 export const authOptions = {
   providers: [
@@ -37,11 +38,24 @@ export const authOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }: { token: any; user: any }) {
+    async jwt({
+      token,
+      user,
+      trigger,
+      session,
+    }: {
+      token: JWT;
+      user?: any;
+      trigger?: "update" | "signIn" | "signUp";
+      session?: any;
+    }) {
+      if (trigger === "update" && session) {
+        return { ...token, ...session.user };
+      }
       if (user) {
         token.id = user.id;
-        token.email = user.email;
         token.name = user.name;
+        token.email = user.email;
         token.image = user.image;
       }
       return token;

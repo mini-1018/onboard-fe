@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
-import { signup } from "@/entities/user/api/user";
+import { deleteUser, signup, updateUser } from "@/entities/user/api/user";
 import { toast } from "react-toastify";
-import { SignUp } from "@/shared/types/user.type";
+import { DeleteUser, SignUp, UpdateUser } from "@/shared/types/user.type";
 import { useRouter } from "next/navigation";
 
 export const useSignupMutation = () => {
@@ -22,5 +22,30 @@ export const useSignupMutation = () => {
     onError: () => {
       toast.error("회원가입에 실패했습니다.");
     },
+  });
+};
+
+export const useUpdateUserMutation = () => {
+  return useMutation({
+    mutationFn: (data: UpdateUser) => {
+      const formData = new FormData();
+      if (data.name) {
+        formData.append("name", data.name);
+      }
+      if (data.image) {
+        formData.append("image", data.image);
+      }
+      formData.append("userId", data.userId);
+      return updateUser(formData);
+    },
+    onSuccess: (userData) => {
+      return userData;
+    },
+  });
+};
+
+export const useDeleteUserMutation = () => {
+  return useMutation({
+    mutationFn: (data: DeleteUser) => deleteUser(data),
   });
 };
