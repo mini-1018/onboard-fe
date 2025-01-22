@@ -5,9 +5,11 @@ const buttonStyles = cva("text-[16px] font-bold rounded-lg", {
   variants: {
     variant: {
       primary: "bg-primary text-white hover:bg-primary-hover",
+      yellow: "bg-yellow text-black hover:bg-yellow-hover",
       disabled: "bg-gray text-black font-bold cursor-not-allowed",
     },
     size: {
+      s: "w-[80px] h-[40px]",
       sm: "w-[100px] h-[40px]",
       md: "w-[150px] h-[50px]",
       lg: "w-[200px] h-[60px]",
