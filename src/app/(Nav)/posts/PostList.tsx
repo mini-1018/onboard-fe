@@ -53,12 +53,8 @@ export default function PostList({
         {isFetchingNextPage ? (
           <PostSkeletonTemplate />
         ) : hasNextPage ? (
-          <div className="w-full h-10 bg-primary">스크롤 내리면 더 보기</div>
-        ) : (
-          <div className="w-full h-3 bg-primary">
-            더 이상 게시글이 없습니다.
-          </div>
-        )}
+          <PostSkeletonTemplate />
+        ) : null}
       </div>
     </div>
   );

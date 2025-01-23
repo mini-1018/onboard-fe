@@ -6,6 +6,18 @@ export const getPosts = async (params?: GetPostsParams) => {
   return response.data;
 };
 
+export const getPostsByUserId = async (
+  userId: number,
+  params: GetPostsParams
+) => {
+  const response = await axiosInstance.get(`/users/${userId}/posts`, {
+    params,
+  });
+
+  console.log(response.data);
+  return response.data;
+};
+
 export const getPostById = async (id: string) => {
   const response = await axiosInstance.get(`/posts/${id}`);
   return response.data;

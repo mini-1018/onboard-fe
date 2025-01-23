@@ -1,27 +1,58 @@
 "use client";
-import { useGetPostsQuery } from "@/entities/post/api/useGetPostsQuery";
 import SearchInput from "@/shared/components/inputs/SearchInput";
+import { FaSearch } from "react-icons/fa";
+import { useSearchPostsInfiniteQuery } from "@/entities/post/api/useGetPostsQuery";
 import { Post } from "@/shared/types";
+import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
+import PostListTemplate from "@/entities/post/ui/PostListTemplate";
 
 export default function SearchList() {
   const [search, setSearch] = useState("");
+  const { ref, inView } = useInView();
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useSearchPostsInfiniteQuery(search);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
-  const { data: posts } = useGetPostsQuery({
-    search: search,
-  });
+  useEffect(() => {
+    if (inView && hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, fetchNextPage, hasNextPage, isFetchingNextPage]);
 
   return (
-    <div className="h-screen flex items-start justify-center">
-      <div className="flex flex-col items-center justify-center gap-y-[20px] w-[50%]">
-        <SearchInput onChange={onChange} />
-        {posts?.data.map((post: Post) => (
-          <div key={post.id}>{post.title}</div>
-        ))}
+    <div className="w-full flex flex-col items-center justify-center">
+      <div className="w-[50%]">
+        <div className="flex items-center justify-center text-primary gap-x-[10px]">
+          <div className="flex items-center">
+            <FaSearch className="text-3xl" />
+          </div>
+          <div className="w-[50%]">
+            <SearchInput onChange={handleSearch} />
+          </div>
+        </div>
+        <p className="text-primary text-xl font-bold">
+          {data?.pages[0]?.totalCount || 0}개의 포스트
+        </p>
+        <div className="flex flex-col items-center justify-center gap-y-[20px] mt-[20px]">
+          {data?.pages.map((page) =>
+            page.data.map((post: Post) => (
+              <div key={post.id} className="w-full">
+                <PostListTemplate post={post} />
+              </div>
+            ))
+          )}
+          <div ref={ref}>
+            {isFetchingNextPage ? (
+              <div>다음 페이지 로딩중</div>
+            ) : hasNextPage ? (
+              <div>더 보기</div>
+            ) : null}
+          </div>
+        </div>
       </div>
     </div>
   );
