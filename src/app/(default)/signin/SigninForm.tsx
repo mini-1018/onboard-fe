@@ -10,7 +10,13 @@ import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
-export default function SigninForm({ isSignup = false }) {
+export default function SigninForm({
+  isSignup = false,
+  setIsOpen,
+}: {
+  isSignup?: boolean;
+  setIsOpen?: (isOpen: boolean) => void;
+}) {
   const router = useRouter();
   const { register, handleSubmit, errors, isValid } = useSignInForm();
 
@@ -24,6 +30,7 @@ export default function SigninForm({ isSignup = false }) {
       if (result?.ok) {
         toast.success("로그인이 완료되었습니다.");
         router.push("/posts");
+        setIsOpen && setIsOpen(false);
       } else {
         toast.error("이메일 또는 비밀번호를 확인해주세요.");
       }
