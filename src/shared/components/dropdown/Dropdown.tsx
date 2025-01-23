@@ -6,6 +6,10 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { DropdownItem, DropdownProps } from "@/shared/types/dropdown.type";
 import { usePostStore } from "@/entities/post/model/postStore";
 import { useRouter } from "next/navigation";
+import { FaClipboard, FaEdit } from "react-icons/fa";
+import { IoSettings } from "react-icons/io5";
+import { RiLogoutBoxFill } from "react-icons/ri";
+import { MdDelete } from "react-icons/md";
 
 export default function Dropdown({ type, items = [], post }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,26 +24,58 @@ export default function Dropdown({ type, items = [], post }: DropdownProps) {
       }
     : null;
 
-  console.log(postData);
   const dropdownOptions: Record<string, DropdownItem[]> = {
     nav: [
-      { text: "프로필", href: "/profile/me" },
-      { text: "설정", href: "/setting" },
       {
-        text: "로그아웃",
+        text: (
+          <div className="flex justify-center items-center gap-1">
+            <FaClipboard />
+            <p>내 보드</p>
+          </div>
+        ),
+        href: "/myboard",
+      },
+      {
+        text: (
+          <div className="flex justify-center items-center gap-1">
+            <IoSettings />
+            <p>설정</p>
+          </div>
+        ),
+        href: "/setting",
+      },
+      {
+        text: (
+          <div className="flex justify-center items-center gap-1">
+            <RiLogoutBoxFill className="text-primary" />
+            <p>로그아웃</p>
+          </div>
+        ),
         onClick: () => signOut({ callbackUrl: "/signin" }),
         className: "text-red-600",
       },
     ],
     post: [
       {
-        text: "수정하기",
+        text: (
+          <div className="flex justify-center items-center gap-1">
+            <FaEdit className="text-primary" />
+            <p>수정하기</p>
+          </div>
+        ),
         onClick: () => {
           setPost(postData);
           router.push("/posts/edit");
         },
       },
-      { text: "삭제하기", className: "text-red" },
+      {
+        text: (
+          <div className="flex justify-center items-center gap-1">
+            <MdDelete className="text-red" />
+            <p className="text-red">삭제하기</p>
+          </div>
+        ),
+      },
     ],
     comment: [
       { text: "수정하기", href: "#" },

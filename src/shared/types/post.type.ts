@@ -13,6 +13,7 @@ export interface PostResponse {
   data: Post[];
   hasNextPage: boolean;
   nextCursor?: number;
+  totalCount?: number;
 }
 
 export interface GetPostsParams {
@@ -21,6 +22,7 @@ export interface GetPostsParams {
   tags?: string;
   search?: string;
   orderBy?: string;
+  userId?: number;
 }
 
 export interface PostData {

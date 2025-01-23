@@ -1,5 +1,5 @@
 export interface DropdownItem {
-  text: string;
+  text: string | JSX.Element;
   href?: string;
   onClick?: () => void;
   className?: string;

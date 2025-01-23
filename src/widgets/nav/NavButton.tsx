@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Dropdown from "@/shared/components/dropdown/Dropdown";
+import { FaSearch } from "react-icons/fa";
 
 export default function NavButton() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,10 @@ export default function NavButton() {
   };
 
   return (
-    <div className="flex gap-10">
+    <div className="flex gap-10 items-center">
+      <Link href="/search">
+        <FaSearch className="text-2xl text-primary" />
+      </Link>
       <Link href="/posts/create">
         <Button>글작성</Button>
       </Link>
@@ -47,7 +51,7 @@ export default function NavButton() {
       )}
       {isOpen && (
         <Modal closeModal={closeModal}>
-          <SigninForm />
+          <SigninForm setIsOpen={setIsOpen} />
         </Modal>
       )}
     </div>

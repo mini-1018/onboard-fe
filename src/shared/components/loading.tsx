@@ -2,15 +2,15 @@ import Image from "next/image";
 
 export default function Loading() {
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 gap-y-4">
       <Image
-        src="/images/loading.png" // 로고 이미지 경로를 여기에 입력
+        src="/images/loading.png"
         alt="로고 이미지"
-        width={70} // 로고 크기
-        height={70} // 로고 크기
-        className="animate-spin" // Tailwind CSS 회전 애니메이션
+        width={70}
+        height={70}
+        className="animate-spin"
       />
-      <div className="text-xl font-bold">Loading...</div>
+      <div className="text-[10px]">Welcome OnBoard</div>
     </div>
   );
 }
