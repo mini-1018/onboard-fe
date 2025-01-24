@@ -20,14 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-type PageProps = {
-  params: { id: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
-
-async function Page({ params }: PageProps) {
+export default async function Page({ params }: { params: { id: string } }) {
   const post = await getPostById(params.id);
   return <PostMainContent post={post} />;
 }
-
-export default Page;
