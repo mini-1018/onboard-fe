@@ -1,6 +1,6 @@
 "use client";
 import Button from "@/shared/components/buttons/Button";
-import SigninForm from "@/app/(Default)/signin/SigninForm";
+import SigninForm from "@/app/(default)/signin/SigninForm";
 import Modal from "@/shared/components/modal/Modal";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
