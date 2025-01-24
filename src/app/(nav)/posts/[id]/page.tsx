@@ -3,7 +3,7 @@ import { RouteParams } from "@/shared/types";
 import PostMainContent from "./PostMainContent";
 
 export async function generateMetadata({ params }: { params: RouteParams }) {
-  const { id } = await params;
+  const { id } = params;
   const post = await getPostById(id);
   return {
     title: post.title,
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: RouteParams }) {
 }
 
 export default async function Post({ params }: { params: RouteParams }) {
-  const { id } = await params;
+  const { id } = params;
   const post = await getPostById(id);
   return <PostMainContent post={post} />;
 }
