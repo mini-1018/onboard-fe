@@ -1,8 +1,9 @@
 import { getPostById } from "@/entities/post/api/post";
 import { Props } from "@/shared/types/params.type";
 import PostMainContent from "./PostMainContent";
+import { Metadata } from "next";
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = params;
   const post = await getPostById(id);
   return {
