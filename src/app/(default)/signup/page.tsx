@@ -1,4 +1,4 @@
-import SignupForm from "@/app/(Default)/signup/SignupForm";
+import SignupForm from "@/app/(default)/signup/SignupForm";
 import Loading from "@/shared/components/loading";
 import { Suspense } from "react";
 

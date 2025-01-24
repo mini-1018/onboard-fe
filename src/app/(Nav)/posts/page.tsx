@@ -1,5 +1,5 @@
 import { getPosts } from "@/entities/post/api/post";
-import PostList from "./PostList";
+import PostList from "@/app/(nav)/posts/PostList";
 import { Suspense } from "react";
 import PostSkeletonTemplate from "@/entities/post/ui/PostSkeletonTemplate";
 
