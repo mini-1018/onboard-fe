@@ -1,17 +1,14 @@
 import { getPostById } from "@/entities/post/api/post";
 import PostMainContent from "./PostMainContent";
 import { Metadata } from "next";
-import { ResolvingMetadata } from "next";
 
-interface PageParams {
-  id: string;
-}
-
-export async function generateMetadata(
-  { params }: { params: PageParams },
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  const post = await getPostById(params.id);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  const { id } = await params;
+  const post = await getPostById(id);
   return {
     title: post.title,
     description: post.content,
@@ -23,7 +20,12 @@ export async function generateMetadata(
   };
 }
 
-export default async function Page(props: { params: PageParams }) {
-  const post = await getPostById(props.params.id);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const post = await getPostById(id);
   return <PostMainContent post={post} />;
 }
