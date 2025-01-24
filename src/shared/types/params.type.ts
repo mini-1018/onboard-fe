@@ -1,5 +1,4 @@
-export type Props = {
-  params: {
-    id: string;
-  };
-};
+export interface Props {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
