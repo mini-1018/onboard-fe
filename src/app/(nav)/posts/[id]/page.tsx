@@ -2,12 +2,15 @@ import { getPostById } from "@/entities/post/api/post";
 import PostMainContent from "./PostMainContent";
 import { Metadata } from "next";
 
-type Props = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+interface PageParams {
+  id: string;
+}
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: PageParams;
+}): Promise<Metadata> {
   const post = await getPostById(params.id);
   return {
     title: post.title,
@@ -20,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: PageParams }) {
   const post = await getPostById(params.id);
   return <PostMainContent post={post} />;
 }
