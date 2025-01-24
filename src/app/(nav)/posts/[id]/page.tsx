@@ -1,8 +1,8 @@
 import { getPostById } from "@/entities/post/api/post";
-import { RouteParams } from "@/shared/types";
+import { Props } from "@/shared/types/params.type";
 import PostMainContent from "./PostMainContent";
 
-export async function generateMetadata({ params }: { params: RouteParams }) {
+export async function generateMetadata({ params }: Props) {
   const { id } = params;
   const post = await getPostById(id);
   return {
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: RouteParams }) {
   };
 }
 
-export default async function Post({ params }: { params: RouteParams }) {
+export default async function Post({ params }: Props) {
   const { id } = params;
   const post = await getPostById(id);
   return <PostMainContent post={post} />;

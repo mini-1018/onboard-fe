@@ -1,3 +1,5 @@
-export interface RouteParams {
-  id: string;
-}
+export type Props = {
+  params: {
+    id: string;
+  };
+};
