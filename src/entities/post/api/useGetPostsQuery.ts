@@ -78,12 +78,15 @@ export const useGetPostsByUserIdInfiniteQuery = (
       return response;
     },
     getNextPageParam: (lastPage) => {
+      console.log(lastPage);
       return lastPage.hasNextPage ? lastPage.nextCursor : undefined;
     },
-    initialData: {
-      pages: [initialData],
-      pageParams: [undefined],
-    },
+    initialData: search
+      ? undefined
+      : {
+          pages: [initialData],
+          pageParams: [undefined],
+        },
     initialPageParam: undefined,
     staleTime: 1000 * 60 * 5,
   });

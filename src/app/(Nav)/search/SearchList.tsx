@@ -6,6 +6,7 @@ import { Post } from "@/shared/types";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import PostListTemplate from "@/entities/post/ui/PostListTemplate";
+import PostListSkeletonTemplate from "@/entities/post/ui/PostListSkeletonTemplate";
 
 export default function SearchList() {
   const [search, setSearch] = useState("");
@@ -47,9 +48,9 @@ export default function SearchList() {
           )}
           <div ref={ref}>
             {isFetchingNextPage ? (
-              <div>다음 페이지 로딩중</div>
+              <PostListSkeletonTemplate />
             ) : hasNextPage ? (
-              <div>더 보기</div>
+              <PostListSkeletonTemplate />
             ) : null}
           </div>
         </div>

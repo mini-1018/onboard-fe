@@ -3,6 +3,8 @@ import { getServerSession } from "next-auth";
 import Image from "next/image";
 import MyPostList from "./MyPostList";
 import { getPostsByUserId } from "@/entities/post/api/post";
+import { Suspense } from "react";
+import PostListSkeletonTemplate from "@/entities/post/ui/PostListSkeletonTemplate";
 
 export default async function MyBoard() {
   const session = await getServerSession(authOptions);
@@ -23,7 +25,9 @@ export default async function MyBoard() {
             </p>
           </div>
         </div>
-        <MyPostList initialData={initialData} />
+        <Suspense fallback={<PostListSkeletonTemplate />}>
+          <MyPostList initialData={initialData} />
+        </Suspense>
       </div>
     </>
   );
