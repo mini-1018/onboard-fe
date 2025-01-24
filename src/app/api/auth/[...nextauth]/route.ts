@@ -23,7 +23,7 @@ export const authOptions = {
             name: response.name,
             image: response.image[0].url,
           };
-        } catch (error) {
+        } catch (_error) {
           return null;
         }
       },

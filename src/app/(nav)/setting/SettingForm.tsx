@@ -21,9 +21,9 @@ export default function SettingForm() {
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
+    if (file && session?.user?.id) {
       updateUserMutation.mutate(
-        { userId: session?.user.id!, image: file },
+        { userId: session.user.id, image: file },
         {
           onSuccess: (updatedUser) => {
             update({
@@ -41,40 +41,44 @@ export default function SettingForm() {
   };
 
   const handleNameUpdate = async () => {
-    updateUserMutation.mutate(
-      { userId: session?.user.id!, name: newName },
-      {
-        onSuccess: async (updatedUser) => {
-          setIsEditing(false);
-          update({
-            ...session,
-            user: {
-              ...session?.user,
-              name: updatedUser.name,
-            },
-          });
-          toast.success("이름이 변경되었습니다.");
-        },
-        onError: () => {
-          toast.error("이름 변경에 실패했습니다.");
-        },
-      }
-    );
+    if (session?.user?.id) {
+      updateUserMutation.mutate(
+        { userId: session.user.id, name: newName },
+        {
+          onSuccess: async (updatedUser) => {
+            setIsEditing(false);
+            update({
+              ...session,
+              user: {
+                ...session?.user,
+                name: updatedUser.name,
+              },
+            });
+            toast.success("이름이 변경되었습니다.");
+          },
+          onError: () => {
+            toast.error("이름 변경에 실패했습니다.");
+          },
+        }
+      );
+    }
   };
 
   const handleDeleteUser = async () => {
-    deleteUserMutation.mutate(
-      { userId: session?.user.id! },
-      {
-        onSuccess: () => {
-          signOut({ callbackUrl: "/" });
-          toast.success("회원탈퇴가 완료되었습니다.");
-        },
-        onError: () => {
-          toast.error("회원탈퇴에 실패했습니다.");
-        },
-      }
-    );
+    if (session?.user?.id) {
+      deleteUserMutation.mutate(
+        { userId: session.user.id },
+        {
+          onSuccess: () => {
+            signOut({ callbackUrl: "/" });
+            toast.success("회원탈퇴가 완료되었습니다.");
+          },
+          onError: () => {
+            toast.error("회원탈퇴에 실패했습니다.");
+          },
+        }
+      );
+    }
   };
 
   return (
