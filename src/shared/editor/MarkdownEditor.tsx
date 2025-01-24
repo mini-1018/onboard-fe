@@ -137,8 +137,8 @@ export default function MarkdownEditor({
                   cursorPosition + `![](${response.url})`.length;
                 textArea.focus();
               }, 0);
-            } catch (error) {
-              console.error("이미지 업로드 실패:", error);
+            } catch (_error) {
+              toast.error("이미지 업로드에 실패했습니다.");
             }
             return;
           }

@@ -1,5 +1,5 @@
 import { PostData } from "@/shared/types";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { createPost, updatePost } from "./post";
 
 export const useCreatePostMutation = () => {
