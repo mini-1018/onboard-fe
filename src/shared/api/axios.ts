@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000" || process.env.NEXT_PUBLIC_API_URL,
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000",
   headers: {
     "content-type": "application/json",
   },
-  withCredentials: false, // 쿠키 등을 사용하는 경우
+  withCredentials: false,
 });
 
 // axiosInstance.interceptors.request.use((config) => {
