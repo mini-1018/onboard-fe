@@ -1,8 +1,12 @@
 import { getPostById } from "@/entities/post/api/post";
-import { RouteParams } from "@/shared/types";
 import PostMainContent from "./PostMainContent";
+import { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: RouteParams }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
   const { id } = await params;
   const post = await getPostById(id);
   return {
@@ -16,7 +20,11 @@ export async function generateMetadata({ params }: { params: RouteParams }) {
   };
 }
 
-export default async function Post({ params }: { params: RouteParams }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = await params;
   const post = await getPostById(id);
   return <PostMainContent post={post} />;

@@ -1,4 +1,4 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import MyPostList from "@/app/(nav)/myboard/MyPostList";
@@ -16,13 +16,17 @@ export default async function MyBoard() {
     <>
       <div className="flex flex-col items-center justify-center">
         <div className="flex items-center justify-center gap-10 mt-10 border-b border-primary pb-5 w-[50%] gap-x-[100px]">
-          <div className="relative w-[150px] h-[150px] rounded-full overflow-hidden">
-            <Image src={session.user.image} alt="profile" fill />
-          </div>
+          {session && session.user.image && (
+            <div className="relative w-[150px] h-[150px] rounded-full overflow-hidden">
+              <Image src={session.user.image} alt="profile" fill />
+            </div>
+          )}
           <div>
-            <p className="text-xl font-bold text-primary">
-              {session.user.name}
-            </p>
+            {session && (
+              <p className="text-xl font-bold text-primary">
+                {session.user.name}
+              </p>
+            )}
           </div>
         </div>
         <Suspense fallback={<PostListSkeletonTemplate />}>

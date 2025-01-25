@@ -4,7 +4,7 @@ import "@/app/globals.css";
 import QueryProvider from "@/shared/api/QueryProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
 import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
