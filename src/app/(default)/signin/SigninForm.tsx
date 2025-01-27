@@ -44,7 +44,7 @@ export default function SigninForm({
   useEffect(() => {
     const error = searchParams.get("error");
     if (error) {
-      toast.error("로그인이 필요합니다.");
+      toast.error("로그인이 필요합니다.", { toastId: "auth_required" });
     }
   }, [searchParams]);
 

@@ -2,7 +2,7 @@ import { UAParser } from "ua-parser-js";
 import { NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 
-const authRequiredPages = ["/setting", "/post/create", "/post/edit"];
+const authRequiredPages = ["/setting", "/posts/create", "/posts/edit"];
 
 export async function middleware(req: Request) {
   const userAgent = req.headers.get("user-agent") || "";
