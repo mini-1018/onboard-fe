@@ -2,7 +2,6 @@
 import PostTemplate from "@/entities/post/ui/PostTemplate";
 import { Post, PostResponse } from "@/shared/types";
 import { useInView } from "react-intersection-observer";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useGetPostsInfiniteQuery } from "@/entities/post/api/useGetPostsQuery";
 import PostSkeletonTemplate from "@/entities/post/ui/PostSkeletonTemplate";
@@ -32,9 +31,7 @@ export default function PostList({
     return (
       <div className="grid grid-cols-5 gap-x-[14px] gap-y-[20px]">
         {initialData.data.map((post) => (
-          <Link href={`/posts/${post.id}`} key={post.id}>
-            <PostTemplate post={post} />
-          </Link>
+          <PostTemplate post={post} key={post.id} />
         ))}
       </div>
     );
@@ -44,9 +41,7 @@ export default function PostList({
     <div className="grid grid-cols-5 items-center justify-center gap-x-[14px] gap-y-[20px]">
       {data.pages.map((page) =>
         page.data.map((post: Post) => (
-          <Link href={`/posts/${post.id}`} key={post.id}>
-            <PostTemplate post={post} />
-          </Link>
+          <PostTemplate post={post} key={post.id} />
         ))
       )}
       <div ref={ref}>
