@@ -38,13 +38,13 @@ export default async function PostMainContent({ post }: { post: Post }) {
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {post.content}
         </ReactMarkdown>
+        <PostComments />
       </div>
       <div>
         {post.comments.map((comment, index) => (
           <p key={index}>{comment}</p>
         ))}
       </div>
-      <PostComments />
     </div>
   );
 }
