@@ -14,7 +14,6 @@ export const getPostsByUserId = async (
     params,
   });
 
-  console.log(response.data);
   return response.data;
 };
 
