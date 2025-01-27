@@ -2,14 +2,20 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Post } from "@/shared/types";
 import PostDropdown from "./PostDropdown";
+import PostComments from "./PostComments";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
 
-export default function PostMainContent({ post }: { post: Post }) {
+export default async function PostMainContent({ post }: { post: Post }) {
+  const session = await getServerSession(authOptions);
+  const sessionId = session?.user?.id;
+
   return (
     <div className="w-[100%] flex items-center justify-center">
       <div className="w-[50%] flex flex-col items-left">
         <div className="flex justify-between items-center w-full">
           <h1>{post.title}</h1>
-          <PostDropdown post={post} />
+          {sessionId === post.user.id && <PostDropdown post={post} />}
         </div>
         <div className="flex justify-between w-full">
           <div className="flex gap-x-[10px]">
@@ -38,6 +44,7 @@ export default function PostMainContent({ post }: { post: Post }) {
           <p key={index}>{comment}</p>
         ))}
       </div>
+      <PostComments />
     </div>
   );
 }

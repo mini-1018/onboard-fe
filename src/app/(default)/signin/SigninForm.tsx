@@ -8,7 +8,8 @@ import Logo from "@/shared/components/Images/Logo";
 import Button from "@/shared/components/buttons/Button";
 import { signIn } from "next-auth/react";
 import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 export default function SigninForm({
   isSignup = false,
@@ -18,6 +19,7 @@ export default function SigninForm({
   setIsOpen?: (isOpen: boolean) => void;
 }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { register, handleSubmit, errors, isValid } = useSignInForm();
 
   const onSubmit = async (data: SignInFormData) => {
@@ -38,6 +40,13 @@ export default function SigninForm({
       toast.error("이메일 또는 비밀번호를 확인해주세요.");
     }
   };
+
+  useEffect(() => {
+    const error = searchParams.get("error");
+    if (error) {
+      toast.error("로그인이 필요합니다.");
+    }
+  }, [searchParams]);
 
   return (
     <div

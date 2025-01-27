@@ -5,42 +5,45 @@ import {
   extractFirstImage,
   stripMarkdown,
 } from "@/shared/editor/markdown.util";
+import Link from "next/link";
 
 export default function PostListTemplate({ post }: { post: Post }) {
-  const { title, content, user, likes, createdAt, comments } = post;
+  const { title, content, user, likes, createdAt, comments, id } = post;
   return (
-    <div
-      className="p-4 bg-white rounded-lg shadow-md 
+    <Link href={`/posts/${id}`}>
+      <div
+        className="p-4 bg-white rounded-lg shadow-md 
       hover:translate-x-[-4px] transition-all duration-200 ease-in-out mb-4"
-    >
-      <div className="w-full h-[400px] relative rounded-md overflow-hidden mb-4">
-        <Image
-          src={extractFirstImage(content)}
-          alt={post.title}
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div>
-        <h3 className="text-lg font-bold text-primary mb-2 line-clamp-1">
-          {title}
-        </h3>
-        <p className="text-sm text-gray-600 line-clamp-2 mb-2">
-          {stripMarkdown(content)}
-        </p>
-        <div className="flex items-center text-sm gap-3">
-          <span className="font-medium text-primary">{user.name}</span>
-          <div className="flex items-center gap-1">
-            <FaHeart />
-            <p>{likes.length}</p>
+      >
+        <div className="w-full h-[400px] relative rounded-md overflow-hidden mb-4">
+          <Image
+            src={extractFirstImage(content)}
+            alt={post.title}
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div>
+          <h3 className="text-lg font-bold text-primary mb-2 line-clamp-1">
+            {title}
+          </h3>
+          <p className="text-sm text-gray-600 line-clamp-2 mb-2">
+            {stripMarkdown(content)}
+          </p>
+          <div className="flex items-center text-sm gap-3">
+            <span className="font-medium text-primary">{user.name}</span>
+            <div className="flex items-center gap-1">
+              <FaHeart />
+              <p>{likes.length}</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <FaComment />
+              <p>{comments.length}</p>
+            </div>
+            <p>{createdAt}</p>
           </div>
-          <div className="flex items-center gap-1">
-            <FaComment />
-            <p>{comments.length}</p>
-          </div>
-          <p>{createdAt}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

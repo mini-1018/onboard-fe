@@ -35,7 +35,6 @@ export default function MarkdownEditor({
     tags: initialPost?.tags || [],
   });
 
-  console.log(postData);
   const [tagInput, setTagInput] = useState<string>("");
 
   const router = useRouter();

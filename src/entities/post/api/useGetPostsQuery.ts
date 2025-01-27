@@ -78,7 +78,6 @@ export const useGetPostsByUserIdInfiniteQuery = (
       return response;
     },
     getNextPageParam: (lastPage) => {
-      console.log(lastPage);
       return lastPage.hasNextPage ? lastPage.nextCursor : undefined;
     },
     initialData: search
