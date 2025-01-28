@@ -1,5 +1,5 @@
 import { UAParser } from "ua-parser-js";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 
 const authRequiredPages = ["/setting", "/posts/create", "/posts/edit"];
@@ -15,7 +15,10 @@ export async function middleware(req: Request) {
 
   const path = new URL(req.url).pathname;
   if (authRequiredPages.some((page) => path.startsWith(page))) {
-    const token = await getToken({ req: req as any });
+    const token = await getToken({
+      req: req as NextRequest,
+      secret: process.env.NEXTAUTH_SECRET,
+    });
     if (!token) {
       return NextResponse.redirect(
         new URL("/signin?error=auth_required", req.url)
