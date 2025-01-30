@@ -1,128 +1,61 @@
 "use client";
 import { useSession } from "next-auth/react";
-import Image from "next/image";
+import {
+  Comment,
+  CreateComment,
+  UpdateComment,
+} from "@/shared/types/comment.type";
+import CommentInput from "./CommentInput";
+import CommentItem from "./CommentItem";
+import { useCommentMutations } from "@/entities/comment/api/useCommentMutation";
 
-interface Comment {
-  id: number;
-  content: string;
-  createdAt: string;
-  user: {
-    name: string;
-    image: string;
-  };
-  replies?: Comment[];
-}
-
-export default function PostComments() {
+export default function PostComments({
+  comment,
+  userId,
+  postId,
+}: {
+  comment: Comment[];
+  userId: string;
+  postId: number;
+}) {
   const { data: session } = useSession();
+  const isNotMyComment = String(session?.user.id) !== String(userId);
+  const { createComment, updateComment, deleteComment } =
+    useCommentMutations(postId);
 
-  // 임시 댓글 데이터
-  const comments: Comment[] = [
-    {
-      id: 1,
-      content: "정말 좋은 글이네요! 많이 배웠습니다.",
-      createdAt: "2024-02-20T12:00:00",
-      user: {
-        name: "사용자1",
-        image: "/default-profile.png",
-      },
-      replies: [
-        {
-          id: 2,
-          content: "답글 감사합니다 :)",
-          createdAt: "2024-02-20T12:30:00",
-          user: {
-            name: "작성자",
-            image: "/default-profile.png",
-          },
-        },
-      ],
-    },
-  ];
+  const handleCreateComment = (data: CreateComment) => {
+    createComment(data);
+  };
+
+  const handleUpdateComment = (id: number, data: UpdateComment) => {
+    updateComment({ id, comment: data });
+  };
+
+  const handleDeleteComment = (id: number) => {
+    deleteComment(id);
+  };
+
+  const handleSubmitReply = (content: string) => {
+    handleCreateComment?.({
+      content,
+      postId,
+      userId: Number(session?.user?.id),
+    });
+  };
 
   return (
-    <div className="w-full mt-8">
-      {/* 댓글 작성 폼 */}
-      {session && (
-        <div className="flex gap-4 mb-8">
-          <div className="w-10 h-10 relative rounded-full overflow-hidden">
-            <Image
-              src={session.user.image || "/default-profile.png"}
-              alt="profile"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="flex-1">
-            <textarea
-              className="w-full p-3 border border-gray-200 rounded-lg resize-none focus:outline-none focus:border-primary"
-              placeholder="댓글을 작성해주세요"
-              rows={3}
-            />
-            <div className="flex justify-end mt-2">
-              <button className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90">
-                댓글 작성
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* 댓글 목록 */}
-      <div className="space-y-6">
-        {comments.map((comment) => (
-          <div key={comment.id} className="border-b border-gray-100 pb-6">
-            {/* 메인 댓글 */}
-            <div className="flex gap-4">
-              <div className="w-10 h-10 relative rounded-full overflow-hidden">
-                <Image
-                  src={comment.user.image}
-                  alt={comment.user.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-semibold">{comment.user.name}</span>
-                  <span className="text-sm text-gray-500">
-                    {new Date(comment.createdAt).toLocaleDateString()}
-                  </span>
-                </div>
-                <p className="text-gray-800">{comment.content}</p>
-                <button className="text-sm text-gray-500 mt-2 hover:text-primary">
-                  답글 달기
-                </button>
-              </div>
-            </div>
-
-            {/* 답글 목록 */}
-            {comment.replies && comment.replies.length > 0 && (
-              <div className="ml-14 mt-4 space-y-4">
-                {comment.replies.map((reply) => (
-                  <div key={reply.id} className="flex gap-4">
-                    <div className="w-8 h-8 relative rounded-full overflow-hidden">
-                      <Image
-                        src={reply.user.image}
-                        alt={reply.user.name}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="font-semibold">{reply.user.name}</span>
-                        <span className="text-sm text-gray-500">
-                          {new Date(reply.createdAt).toLocaleDateString()}
-                        </span>
-                      </div>
-                      <p className="text-gray-800">{reply.content}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+    <div className="w-full mt-8 border-t border-primary pt-8">
+      {isNotMyComment && <CommentInput onSubmit={handleSubmitReply} />}
+      <div className="space-y-1 mt-8">
+        {comment.map((comment) => (
+          <CommentItem
+            key={comment.id}
+            comment={comment}
+            handleCreateComment={handleCreateComment}
+            handleUpdateComment={handleUpdateComment}
+            handleDeleteComment={handleDeleteComment}
+            postId={postId}
+          />
         ))}
       </div>
     </div>

@@ -6,4 +6,5 @@ export const QueryKeys = {
     "myPosts",
     { userId, search },
   ],
+  COMMENTS: (postId: number) => ["comments", { postId }],
 };

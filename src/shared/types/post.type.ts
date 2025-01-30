@@ -1,3 +1,5 @@
+import { Comment } from "@/shared/types/comment.type";
+
 export interface Post {
   id: number;
   title: string;
@@ -6,7 +8,7 @@ export interface Post {
   user: { id: string; name: string };
   likes: string[];
   createdAt: string;
-  comments: string[];
+  comments: Comment[];
 }
 
 export interface PostResponse {

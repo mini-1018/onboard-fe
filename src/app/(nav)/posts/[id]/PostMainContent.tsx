@@ -21,7 +21,7 @@ export default async function PostMainContent({ post }: { post: Post }) {
           <div className="flex gap-x-[10px]">
             <p>by {post.user.name}</p>
             <p>|</p>
-            <p>{post.createdAt}</p>
+            <p>{new Date(post.createdAt).toLocaleDateString()}</p>
           </div>
           <p>❤️ {post.likes.length}</p>
         </div>
@@ -38,12 +38,13 @@ export default async function PostMainContent({ post }: { post: Post }) {
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {post.content}
         </ReactMarkdown>
-        <PostComments />
-      </div>
-      <div>
-        {post.comments.map((comment, index) => (
-          <p key={index}>{comment}</p>
-        ))}
+        <div>
+          <PostComments
+            comment={post.comments}
+            userId={post.user.id}
+            postId={post.id}
+          />
+        </div>
       </div>
     </div>
   );
