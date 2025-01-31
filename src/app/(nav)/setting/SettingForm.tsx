@@ -82,52 +82,79 @@ export default function SettingForm() {
   };
 
   return (
-    <div className="flex items-start gap-20 w-full justify-center h-screen mt-20">
-      <div className="flex items-center gap-20">
-        <div className="flex flex-col items-center gap-4">
-          <div className="w-20 h-20 relative rounded-full">
+    <div className="max-w-2xl mx-auto mt-12 p-8 bg-white rounded-lg shadow-sm">
+      <h1 className="text-2xl font-bold mb-8 text-center text-primary">
+        프로필 설정
+      </h1>
+
+      <div className="flex flex-col items-center space-y-8">
+        {/* 프로필 이미지 섹션 */}
+        <div className="w-full flex flex-col items-center gap-4">
+          <div className="w-32 h-32 relative rounded-full overflow-hidden border-4 border-gray-50 shadow-md">
             <Image
-              src={session?.user.image || ""}
+              src={session?.user.image || "/default-profile.png"}
               alt="profile"
               fill
-              className="rounded-full"
+              className="object-cover"
             />
           </div>
-          <div className="flex gap-2">
-            <input
-              type="file"
-              ref={fileInputRef}
-              className="hidden"
-              accept="image/*"
-              onChange={handleImageUpload}
-            />
-            <Button onClick={() => fileInputRef.current?.click()}>
-              이미지 변경
-            </Button>
+          <input
+            type="file"
+            ref={fileInputRef}
+            className="hidden"
+            accept="image/*"
+            onChange={handleImageUpload}
+          />
+          <Button
+            onClick={() => fileInputRef.current?.click()}
+            variant="primary"
+            size="sm"
+          >
+            이미지 변경
+          </Button>
+        </div>
+
+        <div className="w-full border-t border-yellow" />
+
+        <div className="w-full max-w-md">
+          <div className="flex flex-col items-center gap-4">
+            <div className="text-lg font-bold text-primary">닉네임</div>
+            {isEditing ? (
+              <div className="w-full flex gap-2">
+                <Input
+                  type="text"
+                  value={newName}
+                  onChange={(e) => setNewName(e.target.value)}
+                  className="flex-1"
+                  placeholder="새로운 이름을 입력하세요"
+                />
+                <Button onClick={handleNameUpdate}>저장</Button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-4">
+                <span className="text-lg font-medium">
+                  {session?.user.name}
+                </span>
+                <Button
+                  onClick={() => setIsEditing(true)}
+                  variant="primary"
+                  size="sm"
+                >
+                  수정
+                </Button>
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="h-40 border-l border-black" />
+        <div className="w-full border-t border-yellow" />
 
-        <div className="flex flex-col items-center gap-2">
-          {isEditing ? (
-            <>
-              <Input
-                type="text"
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
-              />
-              <Button onClick={handleNameUpdate}>저장</Button>
-            </>
-          ) : (
-            <>
-              <div>{session?.user.name}</div>
-              <Button onClick={() => setIsEditing(true)}>이름 변경</Button>
-            </>
-          )}
+        <div className="w-full flex justify-center">
+          <Button onClick={handleDeleteUser} variant="warning" size="sm">
+            회원 탈퇴
+          </Button>
         </div>
       </div>
-      <Button onClick={handleDeleteUser}>회원 탈퇴</Button>
     </div>
   );
 }

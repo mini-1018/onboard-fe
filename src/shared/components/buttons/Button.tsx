@@ -7,6 +7,7 @@ const buttonStyles = cva("text-[16px] font-bold rounded-lg", {
       primary: "bg-primary text-white hover:bg-primary-hover",
       yellow: "bg-yellow text-black hover:bg-yellow-hover",
       disabled: "bg-gray text-black font-bold cursor-not-allowed",
+      warning: "bg-gray-500 text-white hover:bg-red-hover",
     },
     size: {
       s: "w-[80px] h-[40px]",
