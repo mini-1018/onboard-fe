@@ -32,7 +32,9 @@ export default function PostTemplate({
             <p className="text-[14px]">❤️ {likes.length}</p>
           </div>
           <div className="flex justify-between w-full">
-            <p className="text-[14px]">{createdAt}</p>
+            <p className="text-[14px]">
+              {new Date(createdAt).toLocaleDateString()}
+            </p>
             <p className="text-[14px]">💬 {comments.length}</p>
           </div>
         </div>
