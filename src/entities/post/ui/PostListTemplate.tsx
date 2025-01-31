@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Post } from "@/shared/types";
-import { FaHeart, FaComment } from "react-icons/fa";
+import { FaHeart, FaComment, FaUser } from "react-icons/fa";
 import {
   extractFirstImage,
   stripMarkdown,
@@ -31,13 +31,16 @@ export default function PostListTemplate({ post }: { post: Post }) {
             {stripMarkdown(content)}
           </p>
           <div className="flex items-center text-sm gap-3">
-            <span className="font-medium text-primary">{user.name}</span>
             <div className="flex items-center gap-1">
-              <FaHeart />
+              <FaUser className="text-primary" />
+              <span className="font-medium text-primary">{user.name}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <FaHeart className="text-primary" />
               <p>{likes.length}</p>
             </div>
             <div className="flex items-center gap-1">
-              <FaComment />
+              <FaComment className="text-primary" />
               <p>{comments.length}</p>
             </div>
             <p>{new Date(createdAt).toLocaleDateString()}</p>
