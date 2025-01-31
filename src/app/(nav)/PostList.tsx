@@ -29,7 +29,7 @@ export default function PostList({
 
   if (!mounted) {
     return (
-      <div className="grid grid-cols-5 gap-x-[14px] gap-y-[20px]">
+      <div className="grid grid-cols-5 gap-x-[45px] gap-y-[35px]">
         {initialData.data.map((post) => (
           <PostTemplate post={post} key={post.id} />
         ))}
@@ -38,7 +38,7 @@ export default function PostList({
   }
 
   return (
-    <div className="grid grid-cols-5 items-center justify-center gap-x-[14px] gap-y-[20px]">
+    <div className="grid grid-cols-5 items-center justify-center gap-x-[45px] gap-y-[35px] mt-[40px]">
       {data.pages.map((page) =>
         page.data.map((post: Post) => (
           <PostTemplate post={post} key={post.id} />

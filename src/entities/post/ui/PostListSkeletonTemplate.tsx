@@ -1,6 +1,6 @@
 export default function PostListSkeletonTemplate() {
   return (
-    <div className="flex flex-col w-full gap-y-[20px]">
+    <div className="flex flex-col w-full gap-y-[35px]">
       {Array.from({ length: 5 }, (_, index) => (
         <div
           className="w-full p-4 bg-white rounded-lg shadow-md mb-4"

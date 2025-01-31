@@ -5,8 +5,16 @@ import PostDropdown from "./PostDropdown";
 import PostComments from "./PostComments";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
+import { Comment } from "@/shared/types/comment.type";
+import LikeButton from "@/entities/like/ui/LikeButton";
 
-export default async function PostMainContent({ post }: { post: Post }) {
+export default async function PostMainContent({
+  post,
+  initialComments,
+}: {
+  post: Post;
+  initialComments: Comment[];
+}) {
   const session = await getServerSession(authOptions);
   const sessionId = session?.user?.id;
 
@@ -23,7 +31,13 @@ export default async function PostMainContent({ post }: { post: Post }) {
             <p>|</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
           </div>
-          <p>❤️ {post.likes.length}</p>
+          <div className="flex items-center gap-1">
+            <LikeButton
+              initialLikes={post.likes}
+              postId={post.id}
+              userId={Number(sessionId)}
+            />
+          </div>
         </div>
         <div className="flex flex-wrap gap-2 mt-5 mb-2 border-b border-primary pb-5">
           {post.tags.map((tag, index) => (
@@ -40,7 +54,7 @@ export default async function PostMainContent({ post }: { post: Post }) {
         </ReactMarkdown>
         <div>
           <PostComments
-            comment={post.comments}
+            initialComments={initialComments}
             userId={post.user.id}
             postId={post.id}
           />
