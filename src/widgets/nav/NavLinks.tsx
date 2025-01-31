@@ -9,9 +9,9 @@ export default function NavLinks(): React.ReactNode {
   return (
     <div className="flex items-center justify-center gap-[30px] ml-[50px]">
       <Link
-        href="/posts"
+        href="/"
         className={`${
-          pathname === "/posts" ? "text-yellow" : "text-primary"
+          pathname === "/" ? "text-yellow" : "text-primary"
         } cursor-pointer text-[20px] font-bold`}
       >
         "포스트"
