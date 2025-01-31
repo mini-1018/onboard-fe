@@ -8,17 +8,21 @@ import {
 import CommentInput from "./CommentInput";
 import CommentItem from "./CommentItem";
 import { useCommentMutations } from "@/entities/comment/api/useCommentMutation";
+import { useCommentQuery } from "@/entities/comment/api/useCommentQuery";
 
 export default function PostComments({
-  comment,
+  initialComments,
   userId,
   postId,
 }: {
-  comment: Comment[];
+  initialComments: Comment[];
   userId: string;
   postId: number;
 }) {
   const { data: session } = useSession();
+  const { data: comments } = useCommentQuery(postId, {
+    initialData: initialComments,
+  }) as { data: Comment[] };
   const isNotMyComment = String(session?.user.id) !== String(userId);
   const { createComment, updateComment, deleteComment } =
     useCommentMutations(postId);
@@ -47,7 +51,7 @@ export default function PostComments({
     <div className="w-full mt-8 border-t border-primary pt-8">
       {isNotMyComment && <CommentInput onSubmit={handleSubmitReply} />}
       <div className="space-y-1 mt-8">
-        {comment.map((comment) => (
+        {comments.map((comment) => (
           <CommentItem
             key={comment.id}
             comment={comment}

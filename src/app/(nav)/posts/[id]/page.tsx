@@ -1,6 +1,7 @@
 import { getPostById } from "@/entities/post/api/post";
 import PostMainContent from "./PostMainContent";
 import { Metadata } from "next";
+import { getComments } from "@/entities/comment/api/comment";
 
 export async function generateMetadata({
   params,
@@ -27,5 +28,6 @@ export default async function Page({
 }) {
   const { id } = await params;
   const post = await getPostById(id);
-  return <PostMainContent post={post} />;
+  const initialComments = await getComments(post.id);
+  return <PostMainContent post={post} initialComments={initialComments} />;
 }
