@@ -16,7 +16,7 @@ export default function PostTemplate({
   const { title, content, user, likes, createdAt, comments, id } = post;
   return (
     <Link href={`/posts/${id}`}>
-      <div className="flex flex-col items-center justify-center w-[340px] h-[400px] rounded-lg shadow-primary">
+      <div className="flex flex-col items-center justify-center w-[310px] h-[400px] rounded-lg shadow-primary transform transition-transform hover:-translate-y-2 hover:shadow-lg">
         <div className="relative w-full h-[200px] rounded-t-lg overflow-hidden">
           <Image
             src={extractFirstImage(content)}
