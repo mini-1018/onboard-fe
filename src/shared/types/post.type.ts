@@ -6,7 +6,7 @@ export interface Post {
   content: string;
   tags: { name: string }[];
   user: { id: string; name: string };
-  likes: string[];
+  likes: { userId: number }[];
   createdAt: string;
   comments: Comment[];
 }
