@@ -8,8 +8,25 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
 import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
-  title: "OnBoard",
-  description: "OnBoard",
+  title: "OnBoard | 개발자들의 코딩 항해",
+  description:
+    "개발자를 위한 지식 공유 & 질문 커뮤니티, OnBoard. 모든 개발자들의 막힘없는 코딩 여정을 위해 노력하겠습니다.",
+  openGraph: {
+    title: "OnBoard | 개발자들의 코딩 항해",
+    description:
+      "개발자를 위한 지식 공유 & 질문 커뮤니티, OnBoard. 모든 개발자들의 막힘없는 코딩 여정을 위해 노력하겠습니다.",
+    url: "https://onbrd.kr",
+    siteName: "Onboard",
+    type: "website",
+    images: [
+      {
+        url: "/images/onboard-large.png",
+        width: 400,
+        height: 300,
+        alt: "Onboard 대표 이미지",
+      },
+    ],
+  },
 };
 
 export default async function RootLayout({

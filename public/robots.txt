@@ -1,0 +1,27 @@
+# *
+User-agent: *
+Allow: /
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Naverbot
+User-agent: Naverbot
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+
+# *
+User-agent: *
+Disallow: /setting
+Disallow: /posts/create
+Disallow: /posts/edit
+
+# Host
+Host: https://onbrd.kr
+
+# Sitemaps
+Sitemap: https://onbrd.kr/sitemap.xml
