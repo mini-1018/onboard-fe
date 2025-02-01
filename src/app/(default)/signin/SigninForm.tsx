@@ -31,7 +31,7 @@ export default function SigninForm({
       });
       if (result?.ok) {
         toast.success("로그인이 완료되었습니다.");
-        router.push("/posts");
+        router.push("/");
         setIsOpen && setIsOpen(false);
       } else {
         toast.error("이메일 또는 비밀번호를 확인해주세요.");
