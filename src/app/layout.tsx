@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "OnBoard | 개발자들의 코딩 항해",
   description:
     "개발자를 위한 지식 공유 & 질문 커뮤니티, OnBoard. 모든 개발자들의 막힘없는 코딩 여정을 위해 노력하겠습니다.",
+  icons: {
+    icon: "/images/favicon.ico",
+  },
   openGraph: {
     title: "OnBoard | 개발자들의 코딩 항해",
     description:
