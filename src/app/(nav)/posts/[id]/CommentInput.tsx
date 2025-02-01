@@ -59,6 +59,7 @@ export default function CommentInput({
               setContent(e.target.value);
               onChange?.(e.target.value);
             }}
+            value={content}
           />
           <div className="flex justify-end gap-2 mt-2">
             {isReply && (
