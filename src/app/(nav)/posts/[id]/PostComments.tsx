@@ -9,6 +9,7 @@ import CommentInput from "./CommentInput";
 import CommentItem from "./CommentItem";
 import { useCommentMutations } from "@/entities/comment/api/useCommentMutation";
 import { useCommentQuery } from "@/entities/comment/api/useCommentQuery";
+import { FaRegCommentDots } from "react-icons/fa";
 
 export default function PostComments({
   initialComments,
@@ -51,6 +52,12 @@ export default function PostComments({
     <div className="w-full mt-8 border-t border-primary pt-8">
       {isNotMyComment && <CommentInput onSubmit={handleSubmitReply} />}
       <div className="space-y-1 mt-8">
+        {comments.length === 0 && (
+          <div className="flex flex-col items-center justify-center w-full h-full gap-4">
+            <FaRegCommentDots className="text-primary text-[50px]" />
+            <p className="text-primary text-[20px]">댓글이 없습니다.</p>
+          </div>
+        )}
         {comments.map((comment) => (
           <CommentItem
             key={comment.id}
