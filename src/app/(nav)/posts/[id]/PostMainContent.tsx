@@ -52,9 +52,11 @@ export default async function PostMainContent({
             </p>
           ))}
         </div>
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {post.content}
-        </ReactMarkdown>
+        <div className="prose max-w-none">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {post.content}
+          </ReactMarkdown>
+        </div>
         <div>
           <PostComments
             initialComments={initialComments}
