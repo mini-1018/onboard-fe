@@ -12,7 +12,7 @@ module.exports = {
       { userAgent: "Bingbot", allow: "/" }, // 빙 검색엔진 크롤링 허용
       {
         userAgent: "*",
-        disallow: ["/setting", "/posts/create", "/posts/edit"],
+        disallow: ["/setting", "/posts/create", "/posts/edit", "/unsupported"],
       }, // 관리자 페이지 색인 금지
     ],
     additionalSitemaps: [

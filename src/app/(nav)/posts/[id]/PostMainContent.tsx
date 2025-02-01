@@ -7,6 +7,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
 import { Comment } from "@/shared/types/comment.type";
 import LikeButton from "@/entities/like/ui/LikeButton";
+import { FaUser } from "react-icons/fa";
 
 export default async function PostMainContent({
   post,
@@ -26,11 +27,13 @@ export default async function PostMainContent({
           {sessionId === post.user.id && <PostDropdown post={post} />}
         </div>
         <div className="flex justify-between w-full">
-          <div className="flex gap-x-[10px]">
-            <p>by {post.user.name}</p>
+          <div className="flex gap-x-[10px] items-center">
+            <FaUser className="text-primary text-xxl" />
+            <p>{post.user.name}</p>
             <p>|</p>
             <p>{new Date(post.createdAt).toLocaleDateString()}</p>
           </div>
+
           <div className="flex items-center gap-1">
             <LikeButton
               initialLikes={post.likes}

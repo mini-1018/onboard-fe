@@ -19,6 +19,7 @@ User-agent: *
 Disallow: /setting
 Disallow: /posts/create
 Disallow: /posts/edit
+Disallow: /unsupported
 
 # Host
 Host: https://onbrd.kr
