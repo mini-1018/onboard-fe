@@ -8,6 +8,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
 import { Comment } from "@/shared/types/comment.type";
 import LikeButton from "@/entities/like/ui/LikeButton";
 import { FaUser } from "react-icons/fa";
+import { MarkdownImage } from "@/shared/components/Images/MarkdownImage";
 
 export default async function PostMainContent({
   post,
@@ -53,7 +54,7 @@ export default async function PostMainContent({
           ))}
         </div>
         <div className="prose max-w-none">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={MarkdownImage}>
             {post.content}
           </ReactMarkdown>
         </div>
