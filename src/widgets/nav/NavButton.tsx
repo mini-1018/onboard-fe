@@ -28,22 +28,24 @@ export default function NavButton() {
 
   return (
     <div className="flex gap-10 items-center">
-      <Link href="/search">
+      <Link href="/search" aria-label="게시글 검색" title="게시글 검색">
         <FaSearch className="text-2xl text-primary" />
       </Link>
-      <Link href="/posts/create">
+      <Link href="/posts/create" aria-label="글작성">
         <Button>글작성</Button>
       </Link>
       {session ? (
         <div className="flex items-center">
-          <div className="flex items-center gap-2 w-10 h-10 relative rounded-full">
+          <div className="flex items-center gap-2">
             <Image
               src={`${session.user.image}`}
               alt="profile"
-              fill
+              width={40}
+              height={40}
               className="rounded-full"
             />
           </div>
+
           <Dropdown type="nav" />
         </div>
       ) : (

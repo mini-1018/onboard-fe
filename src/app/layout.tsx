@@ -39,7 +39,7 @@ export default async function RootLayout({
 }) {
   const session = await getServerSession(authOptions);
   return (
-    <html>
+    <html lang="ko">
       <body>
         <QueryProvider>
           <AuthProvider session={session}>

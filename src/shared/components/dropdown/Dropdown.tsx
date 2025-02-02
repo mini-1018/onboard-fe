@@ -89,6 +89,9 @@ export default function Dropdown({ type, items = [], post }: DropdownProps) {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1 p-2 rounded-lg"
+        aria-label="메뉴"
+        aria-expanded={isOpen}
+        aria-haspopup="true"
       >
         {isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </button>
