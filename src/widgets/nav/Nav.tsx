@@ -1,6 +1,5 @@
 import Image from "next/image";
 import NavLinks from "./NavLinks";
-import PromptFont from "@/shared/font/PromptFont";
 import NavButton from "./NavButton";
 import Link from "next/link";
 
@@ -16,9 +15,7 @@ export default async function Nav() {
             height={100}
           />
         </Link>
-        <PromptFont>
-          <NavLinks />
-        </PromptFont>
+        <NavLinks />
       </div>
       <div className="mr-[80px]">
         <NavButton />

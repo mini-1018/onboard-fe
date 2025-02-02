@@ -14,7 +14,7 @@ export default function NavLinks(): React.ReactNode {
           pathname === "/" ? "text-yellow" : "text-primary"
         } cursor-pointer text-[20px] font-bold`}
       >
-        "포스트"
+        Posts
       </Link>
       <div className="text-[20px]">||</div>
       <Link
@@ -23,7 +23,7 @@ export default function NavLinks(): React.ReactNode {
           pathname === "/questions" ? "text-yellow" : "text-primary"
         } cursor-pointer text-[20px] font-bold`}
       >
-        "질문"
+        Questions
       </Link>
     </div>
   );
