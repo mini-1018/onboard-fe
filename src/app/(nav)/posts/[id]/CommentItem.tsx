@@ -67,9 +67,7 @@ export default function CommentItem({
             <span className="font-medium text-sm text-black">
               {comment.user.name}
             </span>
-            <span className="text-xs text-black">
-              {new Date(comment.createdAt).toLocaleDateString()}
-            </span>
+            <span className="text-xs text-black">{comment.createdAt}</span>
           </div>
 
           {isEditing ? (

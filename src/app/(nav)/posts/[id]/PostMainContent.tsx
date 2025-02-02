@@ -32,7 +32,7 @@ export default async function PostMainContent({
             <FaUser className="text-primary text-xxl" />
             <p>{post.user.name}</p>
             <p>|</p>
-            <p>{new Date(post.createdAt).toLocaleDateString()}</p>
+            <p>{post.createdAt}</p>
           </div>
 
           <div className="flex items-center gap-1">
