@@ -14,12 +14,12 @@ export default function PostList({
   const [mounted, setMounted] = useState(false);
   const { ref, inView } = useInView();
 
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useGetPostsInfiniteQuery(initialData);
+
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useGetPostsInfiniteQuery(initialData);
 
   useEffect(() => {
     if (inView && hasNextPage && !isFetchingNextPage) {
