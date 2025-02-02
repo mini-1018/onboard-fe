@@ -7,10 +7,12 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import PostListTemplate from "@/entities/post/ui/PostListTemplate";
 import PostListSkeletonTemplate from "@/entities/post/ui/PostListSkeletonTemplate";
+import Loading from "@/shared/components/loading";
 
 export default function SearchList() {
   const [search, setSearch] = useState("");
   const { ref, inView } = useInView();
+  const [mounted, setMounted] = useState(false);
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useSearchPostsInfiniteQuery(search);
 
@@ -19,10 +21,22 @@ export default function SearchList() {
   };
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
     if (inView && hasNextPage && !isFetchingNextPage) {
       fetchNextPage();
     }
   }, [inView, fetchNextPage, hasNextPage, isFetchingNextPage]);
+
+  if (!mounted) {
+    return (
+      <div className="w-full flex items-center justify-center h-screen">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full flex flex-col items-center justify-center">
@@ -36,7 +50,7 @@ export default function SearchList() {
           </div>
         </div>
         <p className="text-primary text-xl font-bold">
-          {data?.pages[0]?.totalCount || 0}개의 포스트
+          {data?.pages[0]?.totalCount ?? 0}개의 포스트
         </p>
         <div className="flex flex-col items-center justify-center gap-y-[20px] mt-[20px]">
           {data?.pages.map((page) =>
