@@ -39,9 +39,7 @@ export default function PostTemplate({
             </div>
           </div>
           <div className="flex justify-between w-full">
-            <p className="text-[14px]">
-              {new Date(createdAt).toLocaleDateString()}
-            </p>
+            <p className="text-[14px]">{createdAt}</p>
             <div className="flex items-center gap-1">
               <FaComment className="text-primary" />
               <p className="text-[14px]">{comments.length}</p>

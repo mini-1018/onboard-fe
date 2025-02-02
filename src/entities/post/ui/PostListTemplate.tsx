@@ -43,7 +43,7 @@ export default function PostListTemplate({ post }: { post: Post }) {
               <FaComment className="text-primary" />
               <p>{comments.length}</p>
             </div>
-            <p>{new Date(createdAt).toLocaleDateString()}</p>
+            <p>{createdAt}</p>
           </div>
         </div>
       </div>
