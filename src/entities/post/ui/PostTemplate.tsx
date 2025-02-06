@@ -16,8 +16,8 @@ export default function PostTemplate({
   const { title, content, user, likes, createdAt, comments, id } = post;
   return (
     <Link href={`/posts/${id}`}>
-      <div className="flex flex-col items-center justify-center w-[310px] h-[400px] rounded-lg shadow-primary transform transition-transform hover:-translate-y-2 hover:shadow-lg">
-        <div className="rounded-t-lg overflow-hidden">
+      <div className="flex flex-col items-center justify-center w-full max-w-[310px] h-[400px] rounded-lg shadow-primary transform transition-transform hover:-translate-y-2 hover:shadow-lg">
+        <div className="w-full rounded-t-lg overflow-hidden">
           <Image
             src={extractFirstImage(content)}
             alt="게시글 이미지"

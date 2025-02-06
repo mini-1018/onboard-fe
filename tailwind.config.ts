@@ -3,6 +3,9 @@ import type { Config } from "tailwindcss";
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       colors: {
         background: "var(--background)",
@@ -10,12 +13,22 @@ export default {
         primary: "#003559",
         white: "#ffffff",
         gray: "#f5f5f5",
+        "gray-100": "#EDEEF1",
+        "gray-200": "#D9D9D9",
+        "gray-300": "#C4C4C4",
+        "gray-400": "#AFAFAF",
         "gray-500": "#5D5D5D",
+        "gray-600": "#333333",
+        "gray-700": "#222222",
+        "gray-800": "#111111",
+        "gray-900": "#000000",
         red: "#ff0000",
         pink: "#DA5380",
         yellow: "#FFCB00",
         "yellow-hover": "#FFFF8F",
+
         "primary-hover": "#007CCE",
+
         "red-hover": "#FF0000",
         secondary: "#000000",
         accent: "#000000",
@@ -41,8 +54,15 @@ export default {
       backgroundSize: {
         custom: "300% 100%",
       },
+      screens: {
+        lg: "1080px",
+        xl: "1250px",
+        "2xl": "1480px",
+        "3xl": "1800px",
+      },
     },
   },
+
   plugins: [
     require("@tailwindcss/line-clamp"),
     require("@tailwindcss/typography"),
