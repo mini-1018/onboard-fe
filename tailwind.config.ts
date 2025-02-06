@@ -40,13 +40,25 @@ export default {
       animation: {
         shimmer: "shimmer 1.5s infinite linear",
         spin: "spin 3s linear infinite",
+        slideUpAndFade: "slideUpAndFade 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
+        slideDownAndFade: "slideDownAndFade 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
       },
       keyframes: {
         shimmer: {
           "0%": { backgroundPosition: "200%" },
           "100%": { backgroundPosition: "-200%" },
         },
+        slideUpAndFade: {
+          "0%": { opacity: "0", transform: "translateY(2px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+
+        slideDownAndFade: {
+          "0%": { opacity: "0", transform: "translateY(-2px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
+
       backgroundImage: {
         "gradient-custom":
           "linear-gradient(to right, #D9D9D9 0%, #EDEEF1 50%, #D9D9D9 100%)",

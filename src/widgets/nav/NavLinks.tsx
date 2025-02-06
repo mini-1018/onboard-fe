@@ -11,7 +11,7 @@ export default function NavLinks(): React.ReactNode {
       <Link
         href="/"
         className={`${
-          pathname === "/" ? "text-yellow" : "text-primary"
+          pathname === "/" ? "text-primary-hover" : "text-primary"
         } cursor-pointer text-[20px] font-bold`}
       >
         Posts
@@ -20,7 +20,7 @@ export default function NavLinks(): React.ReactNode {
       <Link
         href="/questions"
         className={`${
-          pathname === "/questions" ? "text-yellow" : "text-primary"
+          pathname === "/questions" ? "text-primary-hover" : "text-primary"
         } cursor-pointer text-[20px] font-bold`}
       >
         Questions
