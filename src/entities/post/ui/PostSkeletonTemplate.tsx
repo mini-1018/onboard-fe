@@ -1,9 +1,9 @@
 export default function PostSkeletonTemplate() {
   return (
-    <div className="grid grid-cols-5 gap-x-[14px] gap-y-[20px]">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-x-[14px] gap-y-[20px]">
       {Array.from({ length: 20 }, (_, index) => (
         <div
-          className="flex flex-col items-center justify-center w-[340px] h-[400px] rounded-lg shadow-primary animate-pulse"
+          className="flex flex-col items-center justify-center w-[310px] h-[400px] rounded-lg shadow-primary animate-pulse"
           key={index}
         >
           <div className="w-full h-[200px] rounded-t-lg bg-gradient-custom bg-custom animate-shimmer" />

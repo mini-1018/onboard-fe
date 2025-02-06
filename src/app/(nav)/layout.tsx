@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <>
       <Nav />
-      <div className="ml-[80px] mr-[80px]">{children}</div>
+      {children}
     </>
   );
 }
