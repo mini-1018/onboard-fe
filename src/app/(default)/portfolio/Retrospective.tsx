@@ -1,55 +1,64 @@
 import { useState } from "react";
+import {
+  FaChartLine,
+  FaLightbulb,
+  FaQuestion,
+  FaQuestionCircle,
+} from "react-icons/fa";
 
 export default function Retrospective() {
   const [activeTab, setActiveTab] = useState("troubles");
   return (
-    <div className="space-y-8 max-w-3xl">
-      <h2 className="text-3xl font-bold text-gray-800">프로젝트 회고</h2>
+    <div className="space-y-8 w-full">
+      <h2 className="text-3xl font-bold text-primary border-b border-primary pb-6">
+        프로젝트 회고
+      </h2>
 
       {/* Tabs */}
       <div className="flex gap-4">
         <button
           onClick={() => setActiveTab("troubles")}
-          className={`px-6 py-3 rounded-lg font-semibold transition-colors
+          className={`px-6 py-3 rounded-lg font-semibold transition-colors flex items-center
             ${
               activeTab === "troubles"
                 ? "bg-primary text-white"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
         >
-          🤔 고민했던 점
+          <FaQuestion className="mr-1" /> 고민했던 점
         </button>
         <button
           onClick={() => setActiveTab("solutions")}
-          className={`px-6 py-3 rounded-lg font-semibold transition-colors
+          className={`px-6 py-3 rounded-lg font-semibold transition-colors flex items-center
             ${
               activeTab === "solutions"
                 ? "bg-primary text-white"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
         >
-          💡 해결 방법
+          <FaLightbulb className="mr-1" /> 해결 방법
         </button>
         <button
           onClick={() => setActiveTab("lessons")}
-          className={`px-6 py-3 rounded-lg font-semibold transition-colors
+          className={`px-6 py-3 rounded-lg font-semibold transition-colors flex items-center
             ${
               activeTab === "lessons"
                 ? "bg-primary text-white"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
         >
-          개선할 점
+          <FaChartLine className="mr-1" /> 개선할 점
         </button>
       </div>
 
       {/* Content */}
-      <div className="bg-white rounded-lg p-8 shadow-lg min-h-[400px]">
+      <div className="bg-white rounded-lg p-8 shadow-lg min-h-[400px] shadow-primary">
         {activeTab === "troubles" && (
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-gray-700">
-              🤔 고민했던 점
+            <h3 className="text-2xl font-semibold text-primary flex items-center">
+              <FaQuestion className="mr-1" /> 고민했던 점
             </h3>
+
             <ul className="space-y-4 list-disc list-inside text-gray-600 text-lg">
               <li>
                 <span className="font-semibold">백엔드 고부하 한계</span>
@@ -74,9 +83,10 @@ export default function Retrospective() {
 
         {activeTab === "solutions" && (
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-gray-700">
-              💡 해결 방법
+            <h3 className="text-2xl font-semibold text-primary flex items-center">
+              <FaLightbulb className="mr-1" /> 해결 방법
             </h3>
+
             <ul className="space-y-4 list-disc list-inside text-gray-600 text-lg">
               <li>
                 <span className="font-semibold">
@@ -103,7 +113,9 @@ export default function Retrospective() {
 
         {activeTab === "lessons" && (
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-gray-700">개선할 점</h3>
+            <h3 className="text-2xl font-semibold text-primary flex items-center">
+              <FaChartLine className="mr-1" /> 개선할 점
+            </h3>
             <ul className="space-y-4 list-disc list-inside text-gray-600 text-lg">
               <li>
                 <span className="font-semibold">다양한 백엔드 전략</span>

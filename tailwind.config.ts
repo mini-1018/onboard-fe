@@ -34,7 +34,6 @@ export default {
         accent: "#000000",
       },
       fontFamily: {
-        prompt: ["Prompt", "sans-serif"],
         noto: ["Noto Sans KR", "sans-serif"],
       },
       animation: {
@@ -58,11 +57,15 @@ export default {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
+      boxShadow: {
+        "custom-right-bottom": "0px 5px 0px 0px rgba(0, 0, 0, 0.25)",
+      },
 
       backgroundImage: {
         "gradient-custom":
           "linear-gradient(to right, #D9D9D9 0%, #EDEEF1 50%, #D9D9D9 100%)",
       },
+
       backgroundSize: {
         custom: "300% 100%",
       },

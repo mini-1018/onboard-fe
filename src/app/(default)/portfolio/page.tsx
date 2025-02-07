@@ -52,7 +52,7 @@ export default function PortfolioPage() {
 
   return (
     <div className="w-screen h-screen flex flex-col items-center justify-center bg-gray-50 overflow-hidden">
-      <div className="w-[90%] h-[80%]">{slides[currentSlide].content}</div>
+      <div className="w-[90%] h-[80%] flex">{slides[currentSlide].content}</div>
 
       {/* Navigation */}
       <div className="flex items-center gap-8 mt-8">

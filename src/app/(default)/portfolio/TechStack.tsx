@@ -10,8 +10,8 @@ export default function TechStack() {
       </p>
 
       <div className="flex justify-between gap-6 w-full">
-        <div className="group p-6 space-y-4 rounded-xl shadow-md hover:shadow-lg transition-all bg-white/50 backdrop-blur-sm">
-          <h3 className="text-xl font-semibold text-gray-700">Frontend</h3>
+        <div className="group p-6 space-y-4 rounded-xl shadow-lg hover:shadow-primary transition-all bg-white/50 backdrop-blur-sm">
+          <h3 className="text-xl font-semibold text-primary">Frontend</h3>
           <div className="flex flex-col gap-3">
             <div className="flex items-center">
               <img
@@ -86,8 +86,8 @@ export default function TechStack() {
           </div>
         </div>
 
-        <div className="group p-6 space-y-4 rounded-xl shadow-md hover:shadow-lg transition-all bg-white/50 backdrop-blur-sm">
-          <h3 className="text-xl font-semibold text-gray-700">Backend</h3>
+        <div className="group p-6 space-y-4 rounded-xl shadow-lg hover:shadow-primary transition-all bg-white/50 backdrop-blur-sm">
+          <h3 className="text-xl font-semibold text-primary">Backend</h3>
           <div className="flex flex-col gap-3">
             <div className="flex items-center">
               <img
@@ -142,8 +142,8 @@ export default function TechStack() {
           </div>
         </div>
 
-        <div className="group p-6 space-y-4 rounded-xl shadow-md hover:shadow-lg transition-all bg-white/50 backdrop-blur-sm">
-          <h3 className="text-xl font-semibold text-gray-700">Database</h3>
+        <div className="group p-6 space-y-4 rounded-xl shadow-lg hover:shadow-primary transition-all bg-white/50 backdrop-blur-sm">
+          <h3 className="text-xl font-semibold text-primary">Database</h3>
           <div className="flex flex-col gap-3">
             <div className="flex items-center">
               <img
@@ -158,8 +158,8 @@ export default function TechStack() {
           </div>
         </div>
 
-        <div className="group p-6 space-y-4 rounded-xl shadow-md hover:shadow-lg transition-all bg-white/50 backdrop-blur-sm">
-          <h3 className="text-xl font-semibold text-gray-700">Others</h3>
+        <div className="group p-6 space-y-4 rounded-xl shadow-lg hover:shadow-primary transition-all bg-white/50 backdrop-blur-sm">
+          <h3 className="text-xl font-semibold text-primary">Others</h3>
           <div className="flex flex-col gap-3">
             <div className="flex items-center">
               <img

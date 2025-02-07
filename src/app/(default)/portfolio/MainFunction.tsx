@@ -4,8 +4,10 @@ export default function MainFunction() {
   const [activeTab, setActiveTab] = useState("frontend");
 
   return (
-    <div className="space-y-8 max-w-4xl">
-      <h2 className="text-3xl font-bold text-gray-800">적용 기능</h2>
+    <div className="space-y-8 w-full">
+      <h2 className="text-3xl font-bold text-primary border-b border-primary pb-6">
+        적용 기능
+      </h2>
 
       {/* Tabs */}
       <div className="flex gap-4">
@@ -34,10 +36,10 @@ export default function MainFunction() {
       </div>
 
       {/* Content */}
-      <div className="bg-white rounded-lg p-8 shadow-lg min-h-[400px]">
+      <div className="bg-white rounded-lg p-8 shadow-lg min-h-[400px] shadow-primary">
         {activeTab === "frontend" ? (
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-gray-700">
+            <h3 className="text-2xl font-semibold text-primary">
               프론트엔드 주요 기능
             </h3>
             <div className="space-y-6">
