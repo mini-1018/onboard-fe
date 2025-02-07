@@ -6,7 +6,9 @@ export default function Structure() {
 
   return (
     <div className="space-y-6 w-full">
-      <h2 className="text-3xl font-bold text-gray-800">프로젝트 구성</h2>
+      <h2 className="text-3xl font-bold text-primary border-b border-primary pb-6">
+        프로젝트 구성
+      </h2>
 
       <div className="space-y-6">
         {/* Tabs */}
@@ -36,7 +38,7 @@ export default function Structure() {
         </div>
 
         {/* Content */}
-        <div className="relative w-[75%] h-[500px] bg-white rounded-lg shadow-lg">
+        <div className="relative w-[75%] h-[500px] bg-white rounded-lg shadow-lg shadow-primary">
           {activeTab === "architecture" ? (
             <Image
               src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png"
