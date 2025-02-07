@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function Perfomance() {
   const [activeTab, setActiveTab] = useState("frontend");
@@ -58,7 +59,10 @@ export default function Perfomance() {
                   </li>
                   <li>Next.js Image 컴포넌트를 활용한 이미지 최적화</li>
                   <li>메타태그 최적화를 통한 SEO 개선</li>
-                  <li>무한 스크롤을 통한 페이지네이션으로 사용자 경험 향상</li>
+                  <li>
+                    무한 스크롤을 통한 페이지네이션으로 로딩 속도 및 사용자 경험
+                    향상
+                  </li>
                 </ul>
               </div>
             </div>
@@ -100,14 +104,91 @@ export default function Perfomance() {
             </div>
           </div>
         ) : (
-          <div className="flex-1 flex items-center justify-center shadow-lg rounded-lg shadow-primary">
-            <Image
-              src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/%EC%84%B1%EB%8A%A5%EC%A0%90%EC%88%98.jpg"
-              alt="성능 개선 이미지"
-              className="w-auto object-cover rounded-lg"
-              width={400}
-              height={300}
-            />
+          <div className="w-1/2 flex flex-col gap-2">
+            <div className="flex flex-col shadow-lg rounded-lg shadow-primary px-20 py-4 gap-4 h-[50%]">
+              <div className="flex flex-col gap-2">
+                <p className="text-xl font-bold text-primary">캐시 설정</p>
+                <div className="flex gap-6">
+                  <p className="text-sm text-gray-700">K6 - VUs 1000</p>
+                  <div className="flex gap-1">
+                    <p className="text-sm text-gray-700 font-bold">avg : </p>
+                    <p className="text-sm text-gray-500 flex items-center gap-1">
+                      335.75ms <FaArrowRight />
+                    </p>
+                    <p className="text-sm text-red-500 font-bold">1.85ms</p>
+                  </div>
+                  <div className="flex gap-1">
+                    <p className="text-sm text-gray-700 font-bold">p(95) :</p>
+                    <p className="text-sm text-gray-500 flex items-center gap-1">
+                      1.04s <FaArrowRight />
+                    </p>
+                    <p className="text-sm text-red-500 font-bold">3.71ms</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p>before</p>
+                <Image
+                  src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/%EC%BA%90%EC%8B%9C%EC%A0%84.png"
+                  alt="성능 개선 이미지"
+                  className="w-auto object-cover"
+                  width={400}
+                  height={200}
+                />
+              </div>
+              <div>
+                <p>after</p>
+                <Image
+                  src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/%EC%BA%90%EC%8B%9C%ED%9B%84.png"
+                  alt="성능 개선 이미지"
+                  className="w-auto object-cover"
+                  width={400}
+                  height={200}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col shadow-lg rounded-lg shadow-primary px-20 py-4 h-[50%] gap-4">
+              <div className="space-y-2 mr-6">
+                <p className="text-xl font-bold text-primary">select 조회</p>
+                <div className="flex gap-6">
+                  <p className="text-sm text-gray-700">K6 - VUs 1000</p>
+                  <div className="flex gap-1">
+                    <p className="text-sm text-gray-700 font-bold">avg : </p>
+                    <p className="text-sm text-gray-500 flex items-center gap-1">
+                      84.62ms <FaArrowRight />
+                    </p>
+                    <p className="text-sm text-red-500 font-bold">2.2ms</p>
+                  </div>
+                  <div className="flex gap-1">
+                    <p className="text-sm text-gray-700 font-bold">p(95) :</p>
+                    <p className="text-sm text-gray-500 flex items-center gap-1">
+                      358.73ms <FaArrowRight />
+                    </p>
+                    <p className="text-sm text-red-500 font-bold">4ms</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p>before</p>
+                <Image
+                  src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/select%EC%A0%84.png"
+                  alt="성능 개선 이미지"
+                  className="w-auto object-cover"
+                  width={400}
+                  height={200}
+                />
+              </div>
+              <div>
+                <p>after</p>
+                <Image
+                  src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/select%ED%9B%84.png"
+                  alt="성능 개선 이미지"
+                  className="w-auto object-cover"
+                  width={400}
+                  height={200}
+                />
+              </div>
+            </div>
           </div>
         )}
       </div>
