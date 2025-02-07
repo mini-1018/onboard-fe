@@ -25,7 +25,7 @@ export default function Retrospective() {
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
         >
-          <FaQuestion className="mr-1" /> 고민했던 점
+          <FaQuestion className="mr-1" /> Problems
         </button>
         <button
           onClick={() => setActiveTab("solutions")}
@@ -36,7 +36,7 @@ export default function Retrospective() {
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
         >
-          <FaLightbulb className="mr-1" /> 해결 방법
+          <FaLightbulb className="mr-1" /> Solutions
         </button>
         <button
           onClick={() => setActiveTab("lessons")}
@@ -47,7 +47,7 @@ export default function Retrospective() {
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
         >
-          <FaChartLine className="mr-1" /> 개선할 점
+          <FaChartLine className="mr-1" /> Enhancements
         </button>
       </div>
 
@@ -56,7 +56,7 @@ export default function Retrospective() {
         {activeTab === "troubles" && (
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold text-primary flex items-center">
-              <FaQuestion className="mr-1" /> 고민했던 점
+              <FaQuestion className="mr-1" /> 문제
             </h3>
 
             <ul className="space-y-4 list-disc list-inside text-gray-600 text-lg">

@@ -1,13 +1,6 @@
-import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Introduction() {
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    setAnimate(true);
-  }, []);
-
   return (
     <div className="space-y-6 w-full">
       <div className="flex gap-4 items-end border-b border-primary pb-6">
@@ -108,48 +101,12 @@ export default function Introduction() {
           </h2>
 
           <ul className="space-y-5 text-gray-700 text-2xl pl-4">
-            <li
-              className={`${
-                animate ? "animate-slideUpAndFade" : ""
-              } transition-opacity duration-500`}
-            >
-              1. 소개
-            </li>
-            <li
-              className={`${
-                animate ? "animate-slideUpAndFade" : ""
-              } transition-opacity duration-500`}
-            >
-              2. 기술스택
-            </li>
-            <li
-              className={`${
-                animate ? "animate-slideUpAndFade" : ""
-              } transition-opacity duration-500`}
-            >
-              3. 프로젝트 구성
-            </li>
-            <li
-              className={`${
-                animate ? "animate-slideUpAndFade" : ""
-              } transition-opacity duration-500`}
-            >
-              4. 적용 기능
-            </li>
-            <li
-              className={`${
-                animate ? "animate-slideUpAndFade" : ""
-              } transition-opacity duration-500`}
-            >
-              5. 성능 최적화
-            </li>
-            <li
-              className={`${
-                animate ? "animate-slideUpAndFade" : ""
-              } transition-opacity duration-500`}
-            >
-              6. 회고
-            </li>
+            <li>1. 소개</li>
+            <li>2. 기술스택</li>
+            <li>3. 프로젝트 구성</li>
+            <li>4. 적용 기능</li>
+            <li>5. 성능 최적화</li>
+            <li>6. 회고</li>
           </ul>
         </div>
       </div>

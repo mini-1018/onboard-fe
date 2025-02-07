@@ -23,6 +23,7 @@ export default {
         "gray-800": "#111111",
         "gray-900": "#000000",
         red: "#ff0000",
+        "red-500": "#C90000",
         pink: "#DA5380",
         yellow: "#FFCB00",
         "yellow-hover": "#FFFF8F",
