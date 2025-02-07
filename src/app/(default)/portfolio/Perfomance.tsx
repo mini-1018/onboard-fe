@@ -41,7 +41,7 @@ export default function Perfomance() {
         <div className="bg-white rounded-lg p-8 shadow-lg shadow-primary h-[500px] w-1/2">
           {activeTab === "frontend" ? (
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-700">
+              <h3 className="text-2xl font-semibold text-primary">
                 프론트엔드 최적화
               </h3>
               <div className="space-y-6">
@@ -53,7 +53,7 @@ export default function Perfomance() {
                   </div>
                   <p className="text-lg text-gray-600">Lighthouse 성능 점수</p>
                 </div>
-                <ul className="space-y-3 list-disc list-inside text-gray-600 text-lg">
+                <ul className="flex flex-col gap-10 list-disc list-inside text-gray-600 text-lg">
                   <li>
                     SSR + React Query Initial Data 활용으로 초기 로딩 속도 개선
                   </li>
@@ -68,7 +68,7 @@ export default function Perfomance() {
             </div>
           ) : (
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-700">
+              <h3 className="text-2xl font-semibold text-primary">
                 백엔드 최적화
               </h3>
               <div className="space-y-6">
@@ -80,7 +80,7 @@ export default function Perfomance() {
                   </div>
                   <p className="text-lg text-gray-600">응답 시간 단축</p>
                 </div>
-                <ul className="space-y-3 list-disc list-inside text-gray-600 text-lg">
+                <ul className="flex flex-col gap-10 list-disc list-inside text-gray-600 text-lg">
                   <li>
                     Prisma Select를 활용한 필요 데이터만 조회하여 응답 시간 단축
                   </li>

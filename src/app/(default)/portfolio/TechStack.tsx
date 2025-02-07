@@ -20,7 +20,7 @@ export default function TechStack() {
                 className="transition-transform group-hover:scale-105"
               />
               <span className="ml-3 opacity-0 -translate-x-3 transition-all group-hover:opacity-100 group-hover:translate-x-0 text-sm text-gray-600">
-                서버컴포넌트를 통한 최적화
+                서버 컴포넌트를 통한 최적화
               </span>
             </div>
             <div className="flex items-center">

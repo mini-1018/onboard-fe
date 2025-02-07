@@ -79,7 +79,7 @@ export default function MainFunction() {
           </div>
         ) : (
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-gray-700">
+            <h3 className="text-2xl font-semibold text-primary">
               백엔드 주요 기능
             </h3>
             <div className="space-y-6">
