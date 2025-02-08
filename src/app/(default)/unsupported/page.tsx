@@ -11,8 +11,7 @@ export default function UnsupportedPage() {
       />
       <div className="flex flex-col items-center justify-center gap-y-2 text-primary">
         <p className="text-2xl font-bold">🙏죄송합니다.</p>
-        <p>모바일 및 태블릿 환경 최적화를 준비 중입니다.</p>
-        <p>데스크톱 환경에서 이용 부탁드립니다.</p>
+        <p>포트폴리오는 데스크톱 환경에서 이용 부탁드립니다.</p>
       </div>
     </div>
   );
