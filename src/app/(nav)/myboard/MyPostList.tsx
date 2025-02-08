@@ -31,17 +31,17 @@ export default function MyPostList({
   }, [inView, fetchNextPage, hasNextPage, isFetchingNextPage]);
 
   return (
-    <div className="w-[50%]">
-      <div className="flex items-center justify-between text-primary">
+    <div className="w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%] mt-5">
+      <div className="flex-col justify-start md:flex md:flex-row  md:items-center md:justify-between text-primary">
         <div className="flex items-center">
-          <FaClipboard className="text-3xl" />
-          <h1>나의 보드</h1>
+          <FaClipboard className="md:text-3xl" />
+          <p className="text-2xl md:text-[36px] font-bold my-2">나의 보드</p>
         </div>
-        <div className="w-[50%]">
+        <div className="w-full md:w-[50%]">
           <SearchInput onChange={handleSearch} />
         </div>
       </div>
-      <p className="text-primary text-xl font-bold">
+      <p className="text-primary text-xl font-bold mt-5">
         {data?.pages[0].totalCount}개의 포스트
       </p>
       <div className="flex flex-col items-center justify-center gap-y-[20px] mt-[20px]">

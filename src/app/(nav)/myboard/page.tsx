@@ -15,7 +15,7 @@ export default async function MyBoard() {
   return (
     <>
       <div className="flex flex-col items-center justify-center">
-        <div className="flex items-center justify-center gap-10 mt-10 border-b border-primary pb-5 w-[50%] gap-x-[100px]">
+        <div className="flex items-center justify-center gap-[4vw] mt-10 border-b border-primary pb-5 w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]">
           {session && session.user.image && (
             <div className="relative w-[150px] h-[150px] rounded-full overflow-hidden">
               <Image src={session.user.image} alt="profile" fill />

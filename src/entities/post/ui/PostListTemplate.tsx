@@ -15,12 +15,11 @@ export default function PostListTemplate({ post }: { post: Post }) {
         className="p-4 bg-white rounded-lg shadow-md 
       hover:translate-x-[-4px] transition-all duration-200 ease-in-out mb-4"
       >
-        <div className="rounded-md overflow-hidden mb-4">
+        <div className="rounded-md overflow-hidden mb-4 aspect-[4/3] relative">
           <Image
             src={extractFirstImage(content)}
             alt={post.title}
-            width={958}
-            height={400}
+            fill
             className="object-cover"
           />
         </div>
