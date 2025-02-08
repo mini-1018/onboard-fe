@@ -6,7 +6,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { DropdownItem, DropdownProps } from "@/shared/types/dropdown.type";
 import { usePostStore } from "@/entities/post/model/postStore";
 import { useRouter } from "next/navigation";
-import { FaClipboard, FaEdit } from "react-icons/fa";
+import { FaClipboard, FaEdit, FaSearch } from "react-icons/fa";
 import { IoSettings } from "react-icons/io5";
 import { RiLogoutBoxFill } from "react-icons/ri";
 import { MdDelete } from "react-icons/md";
@@ -28,7 +28,7 @@ export default function Dropdown({ type, items = [], post }: DropdownProps) {
     nav: [
       {
         text: (
-          <div className="flex justify-center items-center gap-1">
+          <div className="flex justify-center items-center  py-2 gap-1">
             <FaClipboard />
             <p>내 보드</p>
           </div>
@@ -37,7 +37,16 @@ export default function Dropdown({ type, items = [], post }: DropdownProps) {
       },
       {
         text: (
-          <div className="flex justify-center items-center gap-1">
+          <div className="flex justify-center items-center gap-1  py-2 md:hidden">
+            <FaSearch />
+            <p>검색</p>
+          </div>
+        ),
+        href: "/search",
+      },
+      {
+        text: (
+          <div className="flex justify-center items-center py-2 gap-1">
             <IoSettings />
             <p>설정</p>
           </div>
@@ -46,7 +55,7 @@ export default function Dropdown({ type, items = [], post }: DropdownProps) {
       },
       {
         text: (
-          <div className="flex justify-center items-center gap-1">
+          <div className="flex justify-center items-center py-2 gap-1">
             <RiLogoutBoxFill className="text-primary" />
             <p>로그아웃</p>
           </div>
@@ -58,7 +67,7 @@ export default function Dropdown({ type, items = [], post }: DropdownProps) {
     post: [
       {
         text: (
-          <div className="flex justify-center items-center gap-1">
+          <div className="flex justify-center items-center  py-2 gap-1">
             <FaEdit className="text-primary" />
             <p>수정하기</p>
           </div>
@@ -70,7 +79,7 @@ export default function Dropdown({ type, items = [], post }: DropdownProps) {
       },
       {
         text: (
-          <div className="flex justify-center items-center gap-1">
+          <div className="flex justify-center items-center  py-2 gap-1">
             <MdDelete className="text-red" />
             <p className="text-red">삭제하기</p>
           </div>
@@ -103,7 +112,7 @@ export default function Dropdown({ type, items = [], post }: DropdownProps) {
               <Link
                 key={index}
                 href={item.href}
-                className={`block text-sm text-center py-2 hover:bg-gray ${
+                className={`block text-sm text-center hover:bg-gray ${
                   item.className || "text-primary"
                 }`}
               >
@@ -113,7 +122,7 @@ export default function Dropdown({ type, items = [], post }: DropdownProps) {
               <button
                 key={index}
                 onClick={item.onClick}
-                className={`w-full text-sm text-center py-2 hover:bg-gray ${
+                className={`w-full text-sm text-center hover:bg-gray ${
                   item.className || "text-primary"
                 }`}
               >

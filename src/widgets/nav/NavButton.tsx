@@ -27,13 +27,19 @@ export default function NavButton() {
   };
 
   return (
-    <div className="flex gap-10 items-center">
-      <Link href="/search" aria-label="게시글 검색" title="게시글 검색">
-        <FaSearch className="text-2xl text-primary" />
-      </Link>
+    <div className="flex gap-[2vw] items-center">
+      <div className="hidden md:block">
+        <Link href="/search" aria-label="게시글 검색" title="게시글 검색">
+          <FaSearch className="text-2xl text-primary" />
+        </Link>
+      </div>
+
       <Link href="/posts/create" aria-label="글작성">
-        <Button>글작성</Button>
+        <div className="hidden md:block">
+          <Button>글작성</Button>
+        </div>
       </Link>
+
       {session ? (
         <div className="flex items-center">
           <div className="flex items-center gap-2">

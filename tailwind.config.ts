@@ -70,12 +70,6 @@ export default {
       backgroundSize: {
         custom: "300% 100%",
       },
-      screens: {
-        lg: "1080px",
-        xl: "1250px",
-        "2xl": "1480px",
-        "3xl": "1800px",
-      },
     },
   },
 

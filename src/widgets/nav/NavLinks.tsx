@@ -7,7 +7,7 @@ export default function NavLinks(): React.ReactNode {
   const pathname = usePathname();
 
   return (
-    <div className="flex items-center justify-center gap-[30px] ml-[50px]">
+    <div className="flex items-center justify-center gap-[1.5vw] ml-[2.5vw]">
       <Link
         href="/"
         className={`${
