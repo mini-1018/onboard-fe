@@ -52,7 +52,7 @@ export default function CommentItem({
   };
 
   return (
-    <div className={`w-full group ${depth > 0 ? "ml-6" : ""} py-4`}>
+    <div className="w-full py-4">
       <div className="flex gap-3">
         <div className="w-10 h-10 relative rounded-full overflow-hidden flex-shrink-0">
           <Image
@@ -86,7 +86,7 @@ export default function CommentItem({
               <p className="text-sm text-black break-words">
                 {comment.content}
               </p>
-              <div className="flex gap-4 mt-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="flex gap-4 mt-2 text-xs">
                 {session && depth < maxDepth && (
                   <button
                     className="text-black"
@@ -158,7 +158,7 @@ export default function CommentItem({
 
       {/* 답글 작성 폼 */}
       {isReplying && (
-        <div className="ml-10">
+        <div className="mt-4">
           <CommentInput
             isReply
             onCancel={() => setIsReplying(false)}
@@ -169,7 +169,7 @@ export default function CommentItem({
 
       {/* 대댓글 목록 */}
       {hasReplies && showReplies && (
-        <div className="mt-2 space-y-1 border-l border-gray">
+        <div className="mt-2 space-y-1 border-l-0">
           {comment.replies?.map((reply) => (
             <CommentItem
               key={reply.id}

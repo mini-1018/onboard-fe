@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default async function Nav() {
   return (
-    <div className="bg-white h-[60px] w-[100%] flex items-center justify-between border-b border-primary mb-[20px] sticky top-0 z-10">
+    <div className="bg-white h-[60px] w-[100%] flex items-center justify-between border-b border-primary mb-[20px] sticky top-0 z-50">
       <div className="flex items-center justify-center gap-[1vw] ml-[5%]">
         <Link href="/">
           {/* 768px 미만에서만 보임 */}
