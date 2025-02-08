@@ -33,7 +33,7 @@ export default function SignupForm() {
     <div className="flex flex-col items-center justify-center gap-y-[20px] h-screen">
       <Logo />
       <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-        <div className="w-[400px]">
+        <div className="w-[300px] md:w-[400px]">
           <InputLabel label="이메일" htmlFor="email" />
           <Input type="email" {...register("email")} variant="yellow" />
           {errors.email && (

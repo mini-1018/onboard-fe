@@ -58,7 +58,7 @@ export default function SigninForm({
     >
       <Logo />
       <form
-        className={isSignup ? "space-y-4 w-[400px]" : "space-y-4"}
+        className="space-y-4 w-[300px] md:w-[400px]"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div>
