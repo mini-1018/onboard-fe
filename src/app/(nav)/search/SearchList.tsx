@@ -40,7 +40,7 @@ export default function SearchList() {
 
   return (
     <div className="w-full flex flex-col items-center justify-center">
-      <div className="w-[50%]">
+      <div className="w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%]">
         <div className="flex items-center justify-center text-primary gap-x-[10px]">
           <div className="flex items-center">
             <FaSearch className="text-3xl" />
