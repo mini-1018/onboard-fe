@@ -22,7 +22,7 @@ export default async function PostMainContent({
 
   return (
     <div className="w-[100%] flex items-center justify-center">
-      <div className="w-[50%] flex flex-col items-left">
+      <div className="w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%] flex flex-col items-left">
         <div className="flex justify-between items-center w-full">
           <h1>{post.title}</h1>
           {sessionId === post.user.id && <PostDropdown post={post} />}

@@ -40,8 +40,8 @@ export default function PostList({
   }
 
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 place-items-center gap-x-[20px] gap-y-[35px] mt-[40px]">
+    <div className="w-full px-[5%]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 place-items-center gap-x-[20px] gap-y-[35px] mt-[40px]">
         {data.pages.map((page) =>
           page.data.map((post: Post) => (
             <PostTemplate post={post} key={post.id} />
