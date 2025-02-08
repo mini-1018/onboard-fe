@@ -94,7 +94,7 @@ export default function Dropdown({ type, items = [], post }: DropdownProps) {
   const dropdownItems = [...dropdownOptions[type], ...items];
 
   return (
-    <div className="relative z-10">
+    <div className={`relative ${type === "nav" ? "z-50" : "z-40"}`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-1 p-2 rounded-lg"
