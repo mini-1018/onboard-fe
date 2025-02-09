@@ -74,6 +74,12 @@ export default function MainFunction() {
                     최적화
                   </p>
                 </li>
+                <li>
+                  <span className="font-semibold">반응형 디자인</span>
+                  <p className="ml-6 mt-1">
+                    사용자 경험을 고려하여 Tailwind CSS로 반응형 디자인 구현
+                  </p>
+                </li>
               </ul>
             </div>
           </div>
@@ -85,10 +91,17 @@ export default function MainFunction() {
             <div className="space-y-6">
               <ul className="space-y-4 list-disc list-inside text-gray-600 text-lg">
                 <li>
-                  <span className="font-semibold">모듈화 및 의존성 주입</span>
+                  <span className="font-semibold">Outbox Pattern</span>
                   <p className="ml-6 mt-1">
-                    NestJS를 활용한 체계적인 모듈화와 의존성 주입으로 개발
-                    생산성 향상
+                    - S3 이미지 삭제와 DB 데이터 삭제의 원자성 보장을 위한
+                    아웃박스 패턴 적용
+                  </p>
+                  <p className="ml-6 mt-1">
+                    - 비동기 이벤트 처리로 데이터 일관성 확보 및 장애 복구
+                    메커니즘 구현
+                  </p>
+                  <p className="ml-6 mt-1">
+                    - 이벤트 처리 상태 모니터링과 실패 시 재시도 로직 구현
                   </p>
                 </li>
                 <li>
@@ -102,6 +115,13 @@ export default function MainFunction() {
                   <span className="font-semibold">캐싱 전략</span>
                   <p className="ml-6 mt-1">
                     효율적인 캐싱 전략 적용으로 서버 부하 감소 및 응답 속도 개선
+                  </p>
+                </li>
+                <li>
+                  <span className="font-semibold">모듈화 및 의존성 주입</span>
+                  <p className="ml-6 mt-1">
+                    NestJS를 활용한 체계적인 모듈화와 의존성 주입으로 개발
+                    생산성 향상
                   </p>
                 </li>
               </ul>
