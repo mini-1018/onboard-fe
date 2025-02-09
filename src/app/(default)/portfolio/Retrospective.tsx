@@ -77,6 +77,15 @@ export default function Retrospective() {
                   고민하였습니다.
                 </p>
               </li>
+              <li>
+                <span className="font-semibold">
+                  외부 의존성과 데이터베이스 간의 분산 트랜잭션 원자성 보장 문제
+                </span>
+                <p className="ml-6 mt-1 text-sm">
+                  S3 이미지 삭제와 데이터베이스 삭제 로직의 원자성과 데이터
+                  일관성 보장을 위해 고민하였습니다.
+                </p>
+              </li>
             </ul>
           </div>
         )}
@@ -103,8 +112,17 @@ export default function Retrospective() {
                 <span className="font-semibold">이미지 테이블 관리</span>
                 <p className="ml-6 mt-1 text-sm">
                   status 컬럼을 boolean 타입으로 설정하여 이미지의 사용 여부를
-                  구분하였고 매일 정해진 시간에 node-cron을 사용해 status가
-                  false인 이미지를 자동으로 삭제하도록 설정하였습니다.
+                  구분하였고 매일 정해진 시간에 cron을 사용해 status가 false인
+                  이미지를 자동으로 삭제하도록 설정하였습니다.
+                </p>
+              </li>
+              <li>
+                <span className="font-semibold">Outbox 패턴 적용</span>
+                <p className="ml-6 mt-1 text-sm">
+                  S3 이미지 삭제와 데이터베이스 삭제의 원자성을 보장하기 위해
+                  Outbox 패턴을 적용하였습니다. 이벤트 타입과 페이로드를 통한
+                  식별, 재시도 횟수 관리, 상태 추적으로 안정적인 장애 복구와
+                  모니터링을 구현하였습니다.
                 </p>
               </li>
             </ul>
@@ -124,26 +142,14 @@ export default function Retrospective() {
                   전략을 고민하였고 더 나은 성능을 위해 다음과 같은 방안을
                   계획하였습니다.
                 </p>
-                <p className="ml-6 mt-1 text-xs">
-                  이중화: 더 많은 유저를 지원하기 위해 인스턴스 성능
-                  업그레이드뿐 아니라, 로드 밸런싱을 통한 이중화 방안을
-                  학습하고자 합니다.
+                <p className="ml-8 mt-1 text-xs">
+                  -이중화: 더 많은 유저를 지원하기 위해 인스턴스 성능
+                  업그레이드뿐 아니라, 로드 밸런싱을 통한 이중화
                 </p>
 
-                <p className="ml-6 mt-1 text-xs">
-                  Redis 활용: 트랜잭션이 빈번하거나 외부 데이터를 추가해야 하는
-                  경우, Redis를 활용한 큐 전략과 캐시 전략 도입도 고려할
-                  계획입니다.
-                </p>
-              </li>
-
-              <li>
-                <span className="font-semibold">
-                  S3와 데이터베이스의 원자성
-                </span>
-                <p className="ml-6 mt-1 text-sm">
-                  S3이미지 삭제와 데이터베이스 삭제의 원자성을 보장하기 위한
-                  Outbox 또는 Saga 패턴 구현을 계획하였습니다.
+                <p className="ml-8 mt-1 text-xs">
+                  -Redis 활용: 트랜잭션이 빈번하거나 외부 데이터를 추가해야 하는
+                  경우, Redis를 활용한 큐 전략과 캐시 전략 도입
                 </p>
               </li>
               <li>
