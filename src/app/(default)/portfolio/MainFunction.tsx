@@ -47,8 +47,7 @@ export default function MainFunction() {
                 <li>
                   <span className="font-semibold">SSR 데이터 최적화</span>
                   <p className="ml-6 mt-1">
-                    서버에서 데이터를 미리 가져와 React Query Initial Data로
-                    활용하여 초기 로딩 속도 개선
+                    React Query Initial Data를 활용하여 초기 로딩 속도 개선
                   </p>
                 </li>
                 <li>
@@ -56,8 +55,10 @@ export default function MainFunction() {
                     무한 스크롤 페이지네이션
                   </span>
                   <p className="ml-6 mt-1">
-                    초기 데이터 요청을 최소화하여 로딩 속도를 개선하고 사용자
-                    경험을 향상시키기 위한 무한 스크롤 페이지네이션 구현
+                    - 초기 데이터 요청을 최소화하여 로딩 속도 개선
+                  </p>
+                  <p className="ml-6 mt-1">
+                    - 사용자 경험을 향상시키기 위한 무한 스크롤 방식 구현
                   </p>
                 </li>
                 <li>
@@ -100,9 +101,7 @@ export default function MainFunction() {
                     - 비동기 이벤트 처리로 데이터 일관성 확보 및 장애 복구
                     메커니즘 구현
                   </p>
-                  <p className="ml-6 mt-1">
-                    - 이벤트 처리 상태 모니터링과 실패 시 재시도 로직 구현
-                  </p>
+                  <p className="ml-6 mt-1">- 이벤트 처리 상태 모니터링</p>
                 </li>
                 <li>
                   <span className="font-semibold">쿼리 최적화</span>
