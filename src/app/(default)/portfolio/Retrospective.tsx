@@ -143,8 +143,9 @@ export default function Retrospective() {
                   계획하였습니다.
                 </p>
                 <p className="ml-8 mt-1 text-xs">
-                  -이중화: 더 많은 유저를 지원하기 위해 인스턴스 성능
-                  업그레이드뿐 아니라, 로드 밸런싱을 통한 이중화
+                  -Scale-up/out 전략: 더 많은 유저를 지원하기 위해 인스턴스 성능
+                  향상(Scale-up)또는 로드 밸런싱을 통한 수평적 확장(Scale-out)
+                  구현
                 </p>
 
                 <p className="ml-8 mt-1 text-xs">
