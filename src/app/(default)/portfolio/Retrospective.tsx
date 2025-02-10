@@ -157,7 +157,7 @@ export default function Retrospective() {
                 <span className="font-semibold">에러 처리</span>
                 <p className="ml-6 mt-1 text-sm">
                   데이터 응답 에러 메시지 세분화를 통해 사용자가 더 나은 경험을
-                  할 수 있도록 개선하도록 계획하였습니다.
+                  할 수 있도록 계획하였습니다.
                 </p>
               </li>
             </ul>
