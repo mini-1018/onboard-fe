@@ -38,23 +38,29 @@ export default function Structure() {
         </div>
 
         {/* Content */}
-        <div className="relative w-[75%] h-[500px] bg-white rounded-lg shadow-lg shadow-primary">
-          {activeTab === "architecture" ? (
+        {activeTab === "architecture" ? (
+          <div className="relative w-[75%] h-[500px] bg-white rounded-lg shadow-lg shadow-primary">
             <Image
               src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png"
               alt="Architecture"
               fill
               className="object-contain p-4"
             />
-          ) : (
-            <Image
-              src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/ERD.svg"
-              alt="ERD Diagram"
-              fill
-              className="object-contain p-4"
-            />
-          )}
-        </div>
+          </div>
+        ) : (
+          <div className="relative w-[75%] h-[580px] bg-white rounded-lg shadow-lg shadow-primary">
+            <div className="relative w-full h-full">
+              <div className="relative min-w-full min-h-full pt-[200px] px-4 group">
+                <Image
+                  src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/ERD.svg"
+                  alt="ERD Diagram"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
