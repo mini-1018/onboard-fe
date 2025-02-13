@@ -52,9 +52,9 @@ export default function Introduction() {
                         <p className="font-bold">⦁ 첫째, 효율성입니다.</p>
                         <p>
                           - 효율적인 개발을 통해 개인 프로젝트 'OnBoard'에서
-                          LightHouse 성능 지표 평균 99점을 달성했으며, 부하
-                          테스트(VUs 1000)에서 평균 응답속도 2.27ms의 성능을
-                          실현하였습니다.
+                          LightHouse 기준 FCP와 LCP 0.5s 성능 지표와 평균 99점을
+                          달성했으며, 부하 테스트(VUs 1000)에서 평균 응답속도
+                          2.27ms의 성능을 실현하였습니다.
                         </p>
                       </li>
 
