@@ -39,7 +39,7 @@ export default function Structure() {
 
         {/* Content */}
         {activeTab === "architecture" ? (
-          <div className="relative w-[75%] h-[500px] bg-white rounded-lg shadow-lg shadow-primary">
+          <div className="relative w-full h-[50vw] 2xl:h-[30vw] bg-white rounded-lg shadow-lg shadow-primary">
             <Image
               src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png"
               alt="Architecture"
@@ -48,9 +48,9 @@ export default function Structure() {
             />
           </div>
         ) : (
-          <div className="relative w-[75%] h-[580px] bg-white rounded-lg shadow-lg shadow-primary">
+          <div className="relative w-full h-[50vw] 2xl:h-[30vw] bg-white rounded-lg shadow-lg shadow-primary">
             <div className="relative w-full h-full">
-              <div className="relative min-w-full min-h-full pt-[200px] px-4 group">
+              <div className="relative min-w-full min-h-full px-4 group">
                 <Image
                   src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/ERD.svg"
                   alt="ERD Diagram"

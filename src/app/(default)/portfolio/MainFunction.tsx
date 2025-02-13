@@ -13,7 +13,7 @@ export default function MainFunction() {
       <div className="flex gap-4">
         <button
           onClick={() => setActiveTab("frontend")}
-          className={`px-6 py-3 rounded-lg font-semibold transition-colors
+          className={`px-6 py-3 rounded-lg font-semibold transition-colors text-sm sm:text-[16px]
               ${
                 activeTab === "frontend"
                   ? "bg-primary text-white"
@@ -24,7 +24,7 @@ export default function MainFunction() {
         </button>
         <button
           onClick={() => setActiveTab("backend")}
-          className={`px-6 py-3 rounded-lg font-semibold transition-colors
+          className={`px-6 py-3 rounded-lg font-semibold transition-colors text-sm sm:text-[16px]
               ${
                 activeTab === "backend"
                   ? "bg-primary text-white"
@@ -36,14 +36,14 @@ export default function MainFunction() {
       </div>
 
       {/* Content */}
-      <div className="bg-white rounded-lg p-8 shadow-lg min-h-[400px] shadow-primary">
+      <div className="bg-white rounded-lg py-8 px-2 sm:px-8 shadow-lg min-h-[400px] shadow-primary">
         {activeTab === "frontend" ? (
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-primary">
+            <h3 className="text-lg md:text-2xl font-semibold text-primary">
               프론트엔드 주요 기능
             </h3>
             <div className="space-y-6">
-              <ul className="space-y-4 list-disc list-inside text-gray-600 text-lg">
+              <ul className="space-y-4 list-disc list-inside text-gray-600 text-sm md:text-lg">
                 <li>
                   <span className="font-semibold">SSR 데이터 최적화</span>
                   <p className="ml-6 mt-1">
@@ -86,11 +86,11 @@ export default function MainFunction() {
           </div>
         ) : (
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-primary">
+            <h3 className="text-lg md:text-2xl font-semibold text-primary">
               백엔드 주요 기능
             </h3>
             <div className="space-y-6">
-              <ul className="space-y-4 list-disc list-inside text-gray-600 text-lg">
+              <ul className="space-y-4 list-disc list-inside text-gray-600 text-sm md:text-lg">
                 <li>
                   <span className="font-semibold">Outbox Pattern</span>
                   <p className="ml-6 mt-1">
