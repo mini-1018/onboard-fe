@@ -36,48 +36,56 @@ export default function MainFunction() {
       </div>
 
       {/* Content */}
-      <div className="bg-white rounded-lg py-8 px-2 sm:px-8 shadow-lg min-h-[400px] shadow-primary">
+      <div className="bg-white rounded-lg py-8 px-4 sm:px-8 shadow-lg min-h-[400px] shadow-primary">
         {activeTab === "frontend" ? (
           <div className="space-y-6">
             <h3 className="text-lg md:text-2xl font-semibold text-primary">
               프론트엔드 주요 기능
             </h3>
             <div className="space-y-6">
-              <ul className="space-y-4 list-disc list-inside text-gray-600 text-sm md:text-lg">
+              <ul className="space-y-4 list-disc list-inside text-gray-600">
                 <li>
-                  <span className="font-semibold">SSR 데이터 최적화</span>
-                  <p className="ml-6 mt-1">
+                  <span className="font-semibold text-sm md:text-base">
+                    SSR 데이터 최적화
+                  </span>
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     React Query Initial Data를 활용하여 초기 로딩 속도 개선
                   </p>
                 </li>
                 <li>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-sm md:text-base">
                     무한 스크롤 페이지네이션
                   </span>
-                  <p className="ml-6 mt-1">
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     - 초기 데이터 요청을 최소화하여 로딩 속도 개선
                   </p>
-                  <p className="ml-6 mt-1">
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     - 사용자 경험을 향상시키기 위한 무한 스크롤 방식 구현
                   </p>
                 </li>
                 <li>
-                  <span className="font-semibold">상태 관리 최적화</span>
-                  <p className="ml-6 mt-1">
+                  <span className="font-semibold text-sm md:text-base">
+                    상태 관리 최적화
+                  </span>
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     Zustand를 활용한 게시글 수정 데이터 관리로 불필요한 API 요청
                     최소화
                   </p>
                 </li>
                 <li>
-                  <span className="font-semibold">이미지 및 SEO 최적화</span>
-                  <p className="ml-6 mt-1">
+                  <span className="font-semibold text-sm md:text-base">
+                    이미지 및 SEO 최적화
+                  </span>
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     Next.js Image 컴포넌트와 메타태그를 활용한 성능 및 검색
                     최적화
                   </p>
                 </li>
                 <li>
-                  <span className="font-semibold">반응형 디자인</span>
-                  <p className="ml-6 mt-1">
+                  <span className="font-semibold text-sm md:text-base">
+                    반응형 디자인
+                  </span>
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     사용자 경험을 고려하여 Tailwind CSS로 반응형 디자인 구현
                   </p>
                 </li>
@@ -90,35 +98,45 @@ export default function MainFunction() {
               백엔드 주요 기능
             </h3>
             <div className="space-y-6">
-              <ul className="space-y-4 list-disc list-inside text-gray-600 text-sm md:text-lg">
+              <ul className="space-y-4 list-disc list-inside text-gray-600">
                 <li>
-                  <span className="font-semibold">Outbox Pattern</span>
-                  <p className="ml-6 mt-1">
+                  <span className="font-semibold text-sm md:text-base">
+                    Outbox Pattern
+                  </span>
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     - S3 이미지 삭제와 DB 데이터 삭제의 원자성 보장을 위한
                     아웃박스 패턴 적용
                   </p>
-                  <p className="ml-6 mt-1">
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     - 비동기 이벤트 처리로 데이터 일관성 확보 및 장애 복구
                     메커니즘 구현
                   </p>
-                  <p className="ml-6 mt-1">- 이벤트 처리 상태 모니터링</p>
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
+                    - 이벤트 처리 상태 모니터링
+                  </p>
                 </li>
                 <li>
-                  <span className="font-semibold">쿼리 최적화</span>
-                  <p className="ml-6 mt-1">
+                  <span className="font-semibold text-sm md:text-base">
+                    쿼리 최적화
+                  </span>
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     Prisma Select를 활용하여 필요한 데이터만 조회함으로써 응답
                     시간 단축
                   </p>
                 </li>
                 <li>
-                  <span className="font-semibold">캐싱 전략</span>
-                  <p className="ml-6 mt-1">
+                  <span className="font-semibold text-sm md:text-base">
+                    캐싱 전략
+                  </span>
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     효율적인 캐싱 전략 적용으로 서버 부하 감소 및 응답 속도 개선
                   </p>
                 </li>
                 <li>
-                  <span className="font-semibold">모듈화 및 의존성 주입</span>
-                  <p className="ml-6 mt-1">
+                  <span className="font-semibold text-sm md:text-base">
+                    모듈화 및 의존성 주입
+                  </span>
+                  <p className="ml-6 mt-1 text-xs md:text-sm">
                     NestJS를 활용한 체계적인 모듈화와 의존성 주입으로 개발
                     생산성 향상
                   </p>

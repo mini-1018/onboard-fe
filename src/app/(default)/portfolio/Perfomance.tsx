@@ -39,7 +39,7 @@ export default function Perfomance() {
       {/* Content */}
       <div className="flex flex-col 2xl:flex-row gap-8 h-auto 2xl:h-[500px]">
         {/* 왼쪽 설명 영역 */}
-        <div className="w-full 2xl:w-1/2 bg-white rounded-lg p-8 shadow-lg shadow-primary">
+        <div className="w-full 2xl:w-1/2 bg-white rounded-lg py-8 px-4 sm:px-8 shadow-lg shadow-primary">
           {activeTab === "frontend" ? (
             <div className="space-y-6">
               <h3 className="text-lg md:text-2xl font-semibold text-primary">
@@ -52,11 +52,11 @@ export default function Perfomance() {
                       99+
                     </span>
                   </div>
-                  <p className="text-base md:text-lg text-gray-600">
+                  <p className="text-base md:text-[16px] text-gray-600">
                     Lighthouse 성능 점수
                   </p>
                 </div>
-                <ul className="flex flex-col gap-6 md:gap-10 list-disc list-inside text-gray-600 text-sm md:text-lg">
+                <ul className="flex flex-col gap-6 md:gap-10 list-disc list-inside text-gray-600 text-sm md:text-[16px]">
                   <li>
                     Prisma Select를 활용한 필요 데이터만 조회하여 응답 시간 단축
                   </li>
@@ -78,11 +78,11 @@ export default function Perfomance() {
                       ↓ms
                     </span>
                   </div>
-                  <p className="text-base md:text-lg text-gray-600">
+                  <p className="text-base md:text-[16px] text-gray-600">
                     응답 시간 단축
                   </p>
                 </div>
-                <ul className="flex flex-col gap-6 md:gap-10 list-disc list-inside text-gray-600 text-sm md:text-lg">
+                <ul className="flex flex-col gap-6 md:gap-10 list-disc list-inside text-gray-600 text-sm md:text-[16px]">
                   <li>
                     Prisma Select를 활용한 필요 데이터만 조회하여 응답 시간 단축
                   </li>

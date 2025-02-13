@@ -18,7 +18,7 @@ export default function Introduction() {
         <div className="w-full 2lx:w-[50%]">
           <div className="h-full">
             <div className="space-y-6 h-full">
-              <div className="h-full shadow-sm px-2 py-5 sm:px-9 rounded-lg shadow-primary">
+              <div className="h-full shadow-sm px-4 py-5 sm:px-9 rounded-lg shadow-primary">
                 <h2 className="text-2xl md:text-3xl font-semibold text-primary">
                   About Me
                 </h2>
@@ -96,7 +96,7 @@ export default function Introduction() {
 
         <div className="w-full 2xl:w-[50%] space-y-4">
           <div className="flex flex-col md:flex-row gap-5">
-            <div className="w-full md:w-[50%] shadow-sm py-5 px-2 sm:px-10 rounded-lg shadow-primary">
+            <div className="w-full md:w-[50%] shadow-sm py-5 px-4 sm:px-10 rounded-lg shadow-primary">
               <h2 className="text-xl md:text-2xl font-semibold text-primary">
                 Contact
               </h2>
@@ -130,7 +130,7 @@ export default function Introduction() {
                 </a>
               </div>
             </div>
-            <div className="shadow-sm py-5 px-2 sm:px-10 rounded-lg shadow-primary w-full md:w-[50%]">
+            <div className="shadow-sm py-5 px-4 sm:px-10 rounded-lg shadow-primary w-full md:w-[50%]">
               <h2 className="text-xl md:text-2xl font-bold text-primary">
                 Contents
               </h2>
@@ -145,7 +145,7 @@ export default function Introduction() {
               </ul>
             </div>
           </div>
-          <div className="w-full p-4 px-2 sm:px-10 bg-white rounded-lg shadow-primary space-y-4 2xl:h-[310px]">
+          <div className="w-full p-4 px-4 sm:px-10 bg-white rounded-lg shadow-primary space-y-4 2xl:h-[310px]">
             <h2 className="text-xl md:text-2xl font-semibold text-primary">
               Description
             </h2>
