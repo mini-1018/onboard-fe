@@ -6,7 +6,7 @@ export default function MainFunction() {
   return (
     <div className="space-y-8 w-full">
       <h2 className="text-3xl font-bold text-primary border-b border-primary pb-6">
-        적용 기능
+        주요 기능
       </h2>
 
       {/* Tabs */}
