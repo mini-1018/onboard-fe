@@ -15,7 +15,7 @@ export default function Introduction() {
         </p>
       </div>
       <div className="w-full flex flex-col gap-5 2xl:flex-row 2xl:gap-20">
-        <div className="w-full 2lx:w-[50%]">
+        <div className="w-full 2xl:w-[50%]">
           <div className="h-full">
             <div className="space-y-6 h-full">
               <div className="h-full shadow-sm px-4 py-5 sm:px-9 rounded-lg shadow-primary">
@@ -54,9 +54,11 @@ export default function Introduction() {
                         </p>
                         <p className="text-xs md:text-sm">
                           - 효율적인 개발을 통해 개인 프로젝트 'OnBoard'에서
-                          LightHouse 기준 FCP와 LCP 0.5s 성능 지표와 평균 99점을
-                          달성했으며, 부하 테스트(VUs 1000)에서 평균 응답속도
-                          2.27ms의 성능을 실현하였습니다.
+                          LightHouse의 주요 성능지표인 FCP(첫 번째 컨텐츠
+                          페인트)와 LCP(최대 컨텐츠 페인트)를 각각 0.5s로
+                          단축하여 평균 99점을 달성했으며, 부하 테스트(VUs
+                          1000)에서 평균 응답속도 2.27ms의 성능을
+                          실현하였습니다.
                         </p>
                       </li>
 
