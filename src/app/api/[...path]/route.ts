@@ -28,10 +28,21 @@ async function handler(request: NextRequest) {
       ...config,
     });
 
+    if (!response || !response.data) {
+      throw new Error("Invalid response from server");
+    }
+
     return NextResponse.json(response.data);
   } catch (error: any) {
+    if (!error.response?.data) {
+      return NextResponse.json(
+        { message: "Internal Server Error" },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(error.response.data, {
-      status: error.response.data.statusCode,
+      status: error.response.data.statusCode || 500,
     });
   }
 }
