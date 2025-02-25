@@ -66,18 +66,15 @@ export default function SettingForm() {
 
   const handleDeleteUser = async () => {
     if (session?.user?.id) {
-      deleteUserMutation.mutate(
-        { userId: session.user.id },
-        {
-          onSuccess: () => {
-            signOut({ callbackUrl: "/" });
-            toast.success("회원탈퇴가 완료되었습니다.");
-          },
-          onError: () => {
-            toast.error("회원탈퇴에 실패했습니다.");
-          },
-        }
-      );
+      deleteUserMutation.mutate(undefined, {
+        onSuccess: () => {
+          signOut({ callbackUrl: "/" });
+          toast.success("회원탈퇴가 완료되었습니다.");
+        },
+        onError: () => {
+          toast.error("회원탈퇴에 실패했습니다.");
+        },
+      });
     }
   };
 

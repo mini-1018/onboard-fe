@@ -1,33 +1,29 @@
 import { GetPostsParams, PostData } from "@/shared/types";
-import { axiosInstance } from "@/shared/api/axios";
+import { request } from "@/shared/api/request";
 
 export const getPosts = async (params?: GetPostsParams) => {
-  const response = await axiosInstance.get("/posts", { params });
-  return response.data;
+  return request("get", "/posts", undefined, { params });
 };
 
 export const getPostsByUserId = async (
   userId: number,
   params: GetPostsParams
 ) => {
-  const response = await axiosInstance.get(`/users/${userId}/posts`, {
-    params,
-  });
-
-  return response.data;
+  return request("get", `/users/${userId}/posts`, undefined, { params });
 };
 
 export const getPostById = async (id: string) => {
-  const response = await axiosInstance.get(`/posts/${id}`);
-  return response.data;
+  return request("get", `/posts/${id}`);
 };
 
-export const createPost = async (post: PostData, userId: string) => {
-  const response = await axiosInstance.post("/posts", { ...post, userId });
-  return response.data;
+export const createPost = async (post: PostData) => {
+  return request("post", "/posts", post);
 };
 
 export const updatePost = async (post: PostData) => {
-  const response = await axiosInstance.patch("/posts", post);
-  return response.data;
+  return request("patch", "/posts", post);
+};
+
+export const deletePost = async (id: string) => {
+  return request("delete", `/posts/${id}`);
 };

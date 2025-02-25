@@ -1,4 +1,5 @@
 import { NextConfig } from "next";
+import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   images: {
@@ -12,9 +13,19 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
   eslint: {
     ignoreDuringBuilds: true,
   },
 };
 
-export default nextConfig;
+const sentryWebpackPluginOptions = {
+  org: "onboard-xn",
+  project: "javascript-nextjs",
+  widenClientFileUpload: true,
+  disableLogger: true,
+  automaticVercelMonitors: true,
+  silent: !process.env.CI,
+};
+
+export default withSentryConfig(nextConfig, sentryWebpackPluginOptions);

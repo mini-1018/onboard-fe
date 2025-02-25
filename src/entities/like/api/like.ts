@@ -1,6 +1,5 @@
-import { axiosInstance } from "@/shared/api/axios";
+import { request } from "@/shared/api/request";
 
 export const toggleLike = async (postId: number, userId: number) => {
-  const response = await axiosInstance.post(`/likes/${postId}`, { userId });
-  return response.data;
+  return request("post", `/likes/${postId}`, { userId });
 };

@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/auth";
 import { ToastContainer } from "react-toastify";
+import ErrorCatcher from "@/shared/api/error/ErrorCatcher";
 
 export const metadata: Metadata = {
   title: "OnBoard | 개발자들의 코딩 항해",
@@ -43,6 +44,7 @@ export default async function RootLayout({
       <body>
         <QueryProvider>
           <AuthProvider session={session}>
+            <ErrorCatcher />
             {children}
             <ToastContainer />
           </AuthProvider>

@@ -23,21 +23,17 @@ export default function SigninForm({
   const { register, handleSubmit, errors, isValid } = useSignInForm();
 
   const onSubmit = async (data: SignInFormData) => {
-    try {
-      const result = await signIn("credentials", {
-        email: data.email,
-        password: data.password,
-        redirect: false,
-      });
-      if (result?.ok) {
-        toast.success("로그인이 완료되었습니다.");
-        router.push("/");
-        setIsOpen && setIsOpen(false);
-      } else {
-        toast.error("이메일 또는 비밀번호를 확인해주세요.");
-      }
-    } catch (_error) {
-      toast.error("이메일 또는 비밀번호를 확인해주세요.");
+    const result = await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    });
+    if (result?.ok) {
+      toast.success("로그인이 완료되었습니다.");
+      router.push("/");
+      setIsOpen && setIsOpen(false);
+    } else {
+      toast.error(`${result?.error}`);
     }
   };
 

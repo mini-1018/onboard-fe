@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { deleteUser, signup, updateUser } from "@/entities/user/api/user";
 import { toast } from "react-toastify";
-import { DeleteUser, SignUp, UpdateUser } from "@/shared/types/user.type";
+import { SignUp, UpdateUser } from "@/shared/types/user.type";
 import { useRouter } from "next/navigation";
 
 export const useSignupMutation = () => {
@@ -18,9 +18,6 @@ export const useSignupMutation = () => {
     onSuccess: () => {
       toast.success("회원가입이 완료되었습니다.");
       router.push("/signin");
-    },
-    onError: () => {
-      toast.error("회원가입에 실패했습니다.");
     },
   });
 };
@@ -46,6 +43,6 @@ export const useUpdateUserMutation = () => {
 
 export const useDeleteUserMutation = () => {
   return useMutation({
-    mutationFn: (data: DeleteUser) => deleteUser(data),
+    mutationFn: () => deleteUser(),
   });
 };

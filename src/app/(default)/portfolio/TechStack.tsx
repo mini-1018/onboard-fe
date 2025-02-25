@@ -53,7 +53,7 @@ export default function TechStack() {
                 className="transition-transform xl:group-hover:scale-105"
               />
               <span className="text-sm text-gray-600 xl:ml-3 xl:opacity-0 xl:-translate-x-3 xl:transition-all xl:group-hover:opacity-100 xl:group-hover:translate-x-0">
-                데이터 페칭 최적화
+                서버 상태관리
               </span>
             </div>
             <div className="flex items-start flex-col xl:flex-row gap-2 xl:gap-0">
@@ -63,7 +63,17 @@ export default function TechStack() {
                 className="transition-transform xl:group-hover:scale-105"
               />
               <span className="text-sm text-gray-600 xl:ml-3 xl:opacity-0 xl:-translate-x-3 xl:transition-all xl:group-hover:opacity-100 xl:group-hover:translate-x-0">
-                효율적인 프론트엔드 상태 관리
+                클라이언트 상태 관리
+              </span>
+            </div>
+            <div className="flex items-start flex-col xl:flex-row gap-2 xl:gap-0">
+              <img
+                src="https://img.shields.io/badge/sentry-%23362D59.svg?style=for-the-badge&logo=sentry&logoColor=white"
+                alt="Sentry"
+                className="transition-transform xl:group-hover:scale-105"
+              />
+              <span className="text-sm text-gray-600 xl:ml-3 xl:opacity-0 xl:-translate-x-3 xl:transition-all xl:group-hover:opacity-100 xl:group-hover:translate-x-0">
+                오류 추적 및 모니터링
               </span>
             </div>
             <div className="flex items-start flex-col xl:flex-row gap-2 xl:gap-0">
@@ -134,12 +144,12 @@ export default function TechStack() {
             </div>
             <div className="flex items-start flex-col xl:flex-row gap-2 xl:gap-0">
               <img
-                src="https://img.shields.io/badge/PM2-black?style=for-the-badge&logo=PM2&logoColor=white"
-                alt="PM2"
+                src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white"
+                alt="Docker"
                 className="transition-transform xl:group-hover:scale-105"
               />
               <span className="text-sm text-gray-600 xl:ml-3 xl:opacity-0 xl:-translate-x-3 xl:transition-all xl:group-hover:opacity-100 xl:group-hover:translate-x-0">
-                Node.js 프로세스 매니저
+                컨테이너화 및 배포 환경 통합
               </span>
             </div>
           </div>
@@ -156,6 +166,16 @@ export default function TechStack() {
               />
               <span className="text-sm text-gray-600 xl:ml-3 xl:opacity-0 xl:-translate-x-3 xl:transition-all xl:group-hover:opacity-100 xl:group-hover:translate-x-0">
                 강력한 오픈소스 관계형 데이터베이스
+              </span>
+            </div>
+            <div className="flex items-start flex-col xl:flex-row gap-2 xl:gap-0">
+              <img
+                src="https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white"
+                alt="Redis"
+                className="transition-transform xl:group-hover:scale-105"
+              />
+              <span className="text-sm text-gray-600 xl:ml-3 xl:opacity-0 xl:-translate-x-3 xl:transition-all xl:group-hover:opacity-100 xl:group-hover:translate-x-0">
+                빠른 데이터 처리
               </span>
             </div>
           </div>

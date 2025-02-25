@@ -17,14 +17,15 @@ export const authOptions: NextAuthOptions = {
         };
         try {
           const response = await signin({ email, password });
+
           return {
             id: response.id,
             email: response.email,
             name: response.name,
             image: response.image[0].url,
           };
-        } catch (_error) {
-          return null;
+        } catch (error: any) {
+          throw new Error(error.message);
         }
       },
     }),
@@ -76,4 +77,11 @@ export const authOptions: NextAuthOptions = {
     signIn: "/signin",
   },
   secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: "jwt",
+    maxAge: 12 * 60 * 60,
+  },
+  jwt: {
+    maxAge: 24 * 60 * 60,
+  },
 };

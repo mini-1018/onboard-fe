@@ -1,10 +1,11 @@
 "use client";
 import Introduction from "./Introduction";
 import TechStack from "./TechStack";
-import Structure from "./Structure";
+import Backend from "./Backend";
 import MainFunction from "./MainFunction";
 import Perfomance from "./Perfomance";
 import Retrospective from "./Retrospective";
+import Frontend from "./Frontend";
 
 const sections = [
   {
@@ -19,21 +20,16 @@ const sections = [
   },
   {
     id: 3,
-    title: "프로젝트 구성",
-    content: <Structure />,
+    title: "Frontend",
+    content: <Frontend />,
   },
   {
     id: 4,
-    title: "주요 기능",
-    content: <MainFunction />,
+    title: "Backend",
+    content: <Backend />,
   },
   {
     id: 5,
-    title: "성능 최적화",
-    content: <Perfomance />,
-  },
-  {
-    id: 6,
     title: "Retrospective",
     content: <Retrospective />,
   },
