@@ -1,22 +1,18 @@
-import { axiosInstance } from "@/shared/api/axios";
+import { request } from "@/shared/api/request";
 import { CreateComment, UpdateComment } from "@/shared/types/comment.type";
 
 export const createComment = async (comment: CreateComment) => {
-  const response = await axiosInstance.post("/comments", comment);
-  return response.data;
+  return request("post", "/comments", comment);
 };
 
 export const getComments = async (postId: number) => {
-  const response = await axiosInstance.get(`/posts/${postId}/comments`);
-  return response.data;
+  return request("get", `/posts/${postId}/comments`);
 };
 
 export const updateComment = async (id: number, comment: UpdateComment) => {
-  const response = await axiosInstance.patch(`/comments/${id}`, comment);
-  return response.data;
+  return request("patch", `/comments/${id}`, comment);
 };
 
 export const deleteComment = async (id: number) => {
-  const response = await axiosInstance.delete(`/comments/${id}`);
-  return response.data;
+  return request("delete", `/comments/${id}`);
 };

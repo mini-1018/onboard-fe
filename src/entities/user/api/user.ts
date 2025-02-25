@@ -1,36 +1,29 @@
-import { axiosInstance } from "@/shared/api/axios";
-import { DeleteUser, Signin } from "@/shared/types/user.type";
+import { Signin } from "@/shared/types/user.type";
+import { request } from "@/shared/api/request";
 
 export const signin = async ({ email, password }: Signin) => {
-  const response = await axiosInstance.post("/users/signin", {
+  return request("post", "/users/signin", {
     email,
     password,
   });
-  return response.data;
 };
 
 export const signup = async (formData: FormData) => {
-  const response = await axiosInstance.post("/users/signup", formData, {
+  return request("post", "/users/signup", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
   });
-
-  return response.data;
 };
 
 export const updateUser = async (formData: FormData) => {
-  const response = await axiosInstance.patch("/users/update", formData, {
+  return request("patch", "/users/update", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
   });
-  return response.data;
 };
 
-export const deleteUser = async ({ userId }: DeleteUser) => {
-  const response = await axiosInstance.delete(`/users/delete`, {
-    data: { userId },
-  });
-  return response.data;
+export const deleteUser = async () => {
+  return request("delete", "/users/delete");
 };
