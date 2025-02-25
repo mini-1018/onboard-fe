@@ -11,6 +11,11 @@ async function handler(request: NextRequest) {
       headers: Object.fromEntries(request.headers),
     };
 
+    console.log(
+      "Attempting backend request to:",
+      process.env.BACKEND_URL + "/" + path
+    );
+
     let body;
     if (!["get", "head", "delete"].includes(method)) {
       const contentType = request.headers.get("content-type");
@@ -28,12 +33,21 @@ async function handler(request: NextRequest) {
       ...config,
     });
 
+    console.log("Backend response:", response?.status, response?.data);
+
     if (!response || !response.data) {
+      console.error("Invalid response:", response);
       throw new Error("Invalid response from server");
     }
 
     return NextResponse.json(response.data);
   } catch (error: any) {
+    console.error("Backend request error:", {
+      status: error.response?.status,
+      data: error.response?.data,
+      message: error.message,
+    });
+
     if (!error.response?.data) {
       return NextResponse.json(
         { message: "Internal Server Error" },
