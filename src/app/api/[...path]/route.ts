@@ -8,7 +8,7 @@ async function handler(request: NextRequest) {
 
   try {
     const config = {
-      headers: Object.fromEntries(request.headers),
+      // headers: Object.fromEntries(request.headers),
     };
 
     console.log(
