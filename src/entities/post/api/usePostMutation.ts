@@ -4,13 +4,7 @@ import { createPost, updatePost } from "./post";
 
 export const useCreatePostMutation = () => {
   return useMutation({
-    mutationFn: ({
-      postData,
-      userId,
-    }: {
-      postData: PostData;
-      userId: string;
-    }) => createPost(postData, userId),
+    mutationFn: (postData: PostData) => createPost(postData),
   });
 };
 
