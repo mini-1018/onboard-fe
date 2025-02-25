@@ -7,8 +7,10 @@ async function handler(request: NextRequest) {
   const method = request.method.toLowerCase();
 
   try {
+    const headers = Object.fromEntries(request.headers);
+    delete headers.host;
     const config = {
-      // headers: Object.fromEntries(request.headers),
+      headers,
     };
 
     console.log(
