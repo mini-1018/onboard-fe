@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function Backend() {
   const [activeTab, setActiveTab] = useState("architecture");
@@ -68,6 +69,10 @@ export default function Backend() {
             데이터베이스 설계 및 최적화
           </h3>
           <p>
+            k6를 통해 부하테스트를 진행하였으며 VUs(가상유저) 1000 기준으로 평균
+            18.77ms, P(95) 88.99ms의 성능을 달성하였습니다.
+          </p>
+          <p>
             - 스키마 설계 : 3NF를 바탕으로 설계하였고 비키 속성들이 기본 키에
             완전히 종속되어 이행적 종속이 없도록 구성하였습니다.
           </p>
@@ -79,6 +84,30 @@ export default function Backend() {
             - 쿼리 최적화 : include 대신 select로 필요한 데이터만 선택하도록
             하였고 커서 기반 페이지네이션을 적용하였습니다.
           </p>
+          <div className="pl-2 space-y-2 sm:space-y-0 sm:flex sm:gap-8">
+            <div className="flex items-center gap-2">
+              <dl className="flex items-center gap-2 text-sm md:text-base">
+                <dt>Avg:</dt>
+                <dd>1.17s</dd>
+                <FaArrowRight
+                  aria-hidden="true"
+                  className="text-sm md:text-base"
+                />
+                <dd className="text-red-500">581.4ms</dd>
+              </dl>
+            </div>
+            <div className="flex items-center gap-2">
+              <dl className="flex items-center gap-2 text-sm md:text-base">
+                <dt>P(95):</dt>
+                <dd>3.13s</dd>
+                <FaArrowRight
+                  aria-hidden="true"
+                  className="text-sm md:text-base"
+                />
+                <dd className="text-red-500">1.56s</dd>
+              </dl>
+            </div>
+          </div>
           <p>
             - 캐싱 전략 : 루트 페이지의 게시글 목록을 조회하는 API와 같이 자주
             조회되는 엔드포인트와 GET 요청에들에 대하여 캐싱하도록
@@ -86,6 +115,30 @@ export default function Backend() {
             사용하는 경우 서비스 레이어에서 쿼리 파라미터에 따른 세부적인 캐싱을
             하도록 구현하였습니다.
           </p>
+          <div className="pl-2 space-y-2 sm:space-y-0 sm:flex sm:gap-8">
+            <div className="flex items-center gap-2">
+              <dl className="flex items-center gap-2 text-sm md:text-base">
+                <dt>Avg:</dt>
+                <dd>581.4ms</dd>
+                <FaArrowRight
+                  aria-hidden="true"
+                  className="text-sm md:text-base"
+                />
+                <dd className="text-red-500">18.77ms</dd>
+              </dl>
+            </div>
+            <div className="flex items-center gap-2">
+              <dl className="flex items-center gap-2 text-sm md:text-base">
+                <dt>P(95):</dt>
+                <dd>1.56s</dd>
+                <FaArrowRight
+                  aria-hidden="true"
+                  className="text-sm md:text-base"
+                />
+                <dd className="text-red-500">88.99ms</dd>
+              </dl>
+            </div>
+          </div>
         </li>
         <li>
           <h3 className="text-base md:text-xl font-bold">트랜잭션</h3>
