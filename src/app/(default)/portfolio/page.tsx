@@ -37,7 +37,7 @@ export default function PortfolioPage() {
   return (
     <>
       <div className="w-full min-h-screen bg-gray-50">
-        <div className="w-[90%] mx-auto py-10 space-y-20">
+        <div className="w-[90%] mx-auto py-10 space-y-20 [&_p]:text-justify">
           {sections.map((section) => (
             <section
               key={section.id}
