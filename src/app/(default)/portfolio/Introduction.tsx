@@ -57,7 +57,7 @@ export default function Introduction() {
                           LightHouse의 주요 성능지표인 FCP(첫 번째 컨텐츠
                           페인트)와 LCP(최대 컨텐츠 페인트)를 각각 0.5s로
                           단축하여 평균 99점을 달성했으며, 부하 테스트(VUs
-                          1000)에서 평균 응답속도 2.27ms의 성능을
+                          1000)에서 평균 응답속도 18.77ms의 성능을
                           실현하였습니다.
                         </p>
                       </li>
