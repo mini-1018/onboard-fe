@@ -2,8 +2,6 @@
 import Introduction from "./Introduction";
 import TechStack from "./TechStack";
 import Backend from "./Backend";
-import MainFunction from "./MainFunction";
-import Perfomance from "./Perfomance";
 import Retrospective from "./Retrospective";
 import Frontend from "./Frontend";
 

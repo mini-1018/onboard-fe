@@ -1,3 +1,4 @@
+@import "//cdn.jsdelivr.net/npm/font-kopubworld@1.0/dotum.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,7 +18,8 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Trebuchet MS, Georgia, Verdana;
+  font-family: "KoPubWorld Dotum", Trebuchet MS, Georgia, Verdana;
+  font-weight: 300;
 }
 
 .shadow-primary {
