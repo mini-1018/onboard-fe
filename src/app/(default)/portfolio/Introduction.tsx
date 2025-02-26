@@ -140,10 +140,9 @@ export default function Introduction() {
               <ul className="space-y-1 text-gray-700 text-sm md:text-lg">
                 <li>1. 소개</li>
                 <li>2. 기술스택</li>
-                <li>3. 프로젝트 구성</li>
-                <li>4. 적용 기능</li>
-                <li>5. 성능 최적화</li>
-                <li>6. 회고</li>
+                <li>3. 프론트엔드</li>
+                <li>4. 백엔드</li>
+                <li>5. 회고</li>
               </ul>
             </div>
           </div>
