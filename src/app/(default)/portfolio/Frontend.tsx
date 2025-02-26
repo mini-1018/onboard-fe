@@ -7,12 +7,12 @@ export default function Frontend() {
         프론트엔드
       </h2>
       <div className="space-y-6">
-        <ul className="space-y-4 list-disc pl-5">
+        <ul className="space-y-10 list-disc pl-5 [&>li]:space-y-2 md:[&>li]:space-y-4 [&>li>p]:text-sm md:[&>li>p]:text-base">
           <li>
-            <h3 className="text-xl font-medium">아키텍처</h3>
-            <div className="relative w-[50%] h-[50vw] 2xl:h-[30vw] bg-white rounded-lg shadow-lg shadow-primary">
+            <h3 className="text-base md:text-xl font-bold">아키텍처</h3>
+            <div className="relative w-[100%] h-[30vw] lg:w-[750px] md:h-[300px] bg-white rounded-lg shadow-lg shadow-primary">
               <Image
-                src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.png"
+                src="https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/frontA.png"
                 alt="Architecture"
                 fill
                 className="object-contain p-4"
@@ -20,14 +20,16 @@ export default function Frontend() {
             </div>
           </li>
           <li>
-            <h3 className="text-xl font-medium">클라이언트-서버 통신 방식</h3>
+            <h3 className="text-base md:text-xl font-bold">
+              클라이언트-서버 통신 방식
+            </h3>
             <p>
               REST API 방식으로 HTTP 메서드를 사용하여 클라이언트와 서버 간의
               통신을 구현하였습니다.
             </p>
           </li>
           <li>
-            <h3 className="text-xl font-medium">인증 / 보안</h3>
+            <h3 className="text-base md:text-xl font-bold">인증 / 보안</h3>
             <p>
               - 클라이언트의 모든 요청은 Next Server를 거치도록 설계하였습니다.
             </p>
@@ -38,7 +40,7 @@ export default function Frontend() {
             </p>
           </li>
           <li>
-            <h3 className="text-xl font-medium">상태관리</h3>
+            <h3 className="text-base md:text-xl font-bold">상태관리</h3>
             <p>- ReactQuery : 서버 상태관리</p>
             <p>
               서버 상태 캐싱, 데이터 리프레시, 재요청, 에러 핸들링 등의 서버
@@ -48,13 +50,14 @@ export default function Frontend() {
             <p>전역에서 사용할 Error상태를 구현하였습니다.</p>
           </li>
           <li>
-            <h3 className="text-xl font-medium">에러처리</h3>
+            <h3 className="text-base md:text-xl font-bold">에러처리</h3>
             <p>
               사용자 경험을 위해 서버에서 응답한 에러를 사용자에게 효율적으로
               제공하기위하여 고민하였고 ReactQuery, Zustand, Toast Ui를 이용하여
-              피드백을 제공하도록 구현하였습니다.
+              피드백을 제공하도록 구현하였습니다. 에러 처리 흐름은 다음과
+              같습니다.
             </p>
-            <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto w-[50%]">
+            <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto w-[100%] md:w-[50%]">
               <code className="text-sm">
                 {`<QueryProvider>
     <ErrorCatcher />
@@ -78,14 +81,14 @@ export default function Frontend() {
             </p>
           </li>
           <li>
-            <h3 className="text-xl font-medium">모니터링 및 로깅</h3>
+            <h3 className="text-base md:text-xl font-bold">모니터링 및 로깅</h3>
             <p>- Sentry</p>
             <p>애플리케이션 레벨 에러들을 그룹핑하고 발생 컨텍스트를 분석</p>
             <p>- Vercel</p>
             <p>서버 사이드 로깅과 배포, 빌드와 같은 인프라 로깅</p>
           </li>
           <li>
-            <h3 className="text-xl font-medium">성능 최적화</h3>
+            <h3 className="text-base md:text-xl font-bold">성능 최적화</h3>
             <p>
               Lighthouse를 통해 성능을 테스트하였고 결과로 FCP(첫 번째 컨텐츠
               페인트), LCP(최대 컨텐츠 페인트) 각각 0.5s 이며 평균 99점의
