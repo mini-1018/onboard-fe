@@ -35,12 +35,12 @@ export default function Introduction() {
                         "인내외양(忍耐外揚) 개발자 안재민입니다."
                       </p>
                       <br />
-                      <p className="text-sm md:text-base">
+                      <p className="text-sm md:text-base text-justify">
                         "불가능해 보이는 문제도 인내와 의지만 있다면 해결할 수
                         있다"는 신념으로 성장해온 개발자입니다. 9년간의 군
                         생활에서 선임자 없이 새로운 업무를 맡아 성공적으로
                         수행한 경험들은 빠른 적응력과 자기주도적 문제해결 능력을
-                        키워주었습니다. 이러한 경험을 토대로 개발자에게 필요한{" "}
+                        키워주었습니다. 이러한 경험을 바탕으로 개발자에게 필요한{" "}
                         <span className="font-bold">세 가지</span> 핵심 역량을
                         갖추었습니다.
                       </p>
@@ -52,7 +52,7 @@ export default function Introduction() {
                         <p className="text-sm md:text-base font-bold">
                           ⦁ 첫째, 효율성입니다.
                         </p>
-                        <p className="text-xs md:text-sm">
+                        <p className="text-xs md:text-sm text-justify">
                           - 효율적인 개발을 통해 개인 프로젝트 'OnBoard'에서
                           LightHouse의 주요 성능지표인 FCP(첫 번째 컨텐츠
                           페인트)와 LCP(최대 컨텐츠 페인트)를 각각 0.4s로
@@ -66,7 +66,7 @@ export default function Introduction() {
                         <p className="text-sm md:text-base font-bold">
                           ⦁ 둘째, 커뮤니케이션 능력입니다.
                         </p>
-                        <p className="text-xs md:text-sm">
+                        <p className="text-xs md:text-sm text-justify">
                           - 3회의 팀 프로젝트에서 90% 이상의 긍정적인 피어리뷰를
                           받았으며, 효과적인 의사소통으로 팀의 생산성 향상에
                           기여했습니다.
@@ -77,14 +77,14 @@ export default function Introduction() {
                         <p className="text-sm md:text-base font-bold">
                           ⦁ 셋째, 강한 책임감과 조직 적응력입니다.
                         </p>
-                        <p className="text-xs md:text-sm">
+                        <p className="text-xs md:text-sm text-justify">
                           - 9년의 군 복무 기간 동안 다양한 임무를 완수하며
                           책임감과 조직 내 협업의 가치를 체화했습니다.
                         </p>
                       </li>
                     </ul>
 
-                    <p className="mt-4 text-sm md:text-sm">
+                    <p className="mt-4 text-sm md:text-sm text-justify">
                       이러한 역량들을 바탕으로 최적화된 서비스를 구현하고
                       팀원들과 효과적으로 소통하며 맡은 업무를 책임감있게
                       수행함으로써 귀사의 발전에 기여하고자 합니다.
@@ -151,11 +151,11 @@ export default function Introduction() {
               Description
             </h2>
             <div className="text-gray-600 leading-relaxed">
-              <p className="text-sm md:text-base">
+              <p className="text-sm md:text-base text-justify">
                 OnBoard는 개발자들이 코딩 과정에서 겪은 문제나 고민을 공유하고,
                 해결되지 않은 질문을 자유롭게 나눌 수 있는 커뮤니티입니다.
               </p>
-              <p className="mt-4 text-sm md:text-base">
+              <p className="mt-4 text-sm md:text-base text-justify">
                 사이트 이름인 OnBoard는 게시판(Board)과 '승선'(On Board)의
                 중의적 의미를 담고 있으며, 돛의 모양은 태그를 형상화하였습니다.
                 많은 개발자들과 함께 코딩항해를 하고자 하는 마음을 담아
