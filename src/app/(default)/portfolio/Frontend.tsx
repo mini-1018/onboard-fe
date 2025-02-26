@@ -91,7 +91,7 @@ export default function Frontend() {
             <h3 className="text-base md:text-xl font-bold">성능 최적화</h3>
             <p>
               Lighthouse를 통해 성능을 테스트하였고 결과로 FCP(첫 번째 컨텐츠
-              페인트), LCP(최대 컨텐츠 페인트) 각각 0.5s 이며 평균 99점의
+              페인트), LCP(최대 컨텐츠 페인트) 각각 0.4s 이며 평균 99점의
               성능지표를 달성하였습니다. 성능 최적화를 위해 다음과 같은 방법을
               사용하였습니다.
             </p>

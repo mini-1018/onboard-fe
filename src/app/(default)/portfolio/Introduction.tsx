@@ -55,7 +55,7 @@ export default function Introduction() {
                         <p className="text-xs md:text-sm">
                           - 효율적인 개발을 통해 개인 프로젝트 'OnBoard'에서
                           LightHouse의 주요 성능지표인 FCP(첫 번째 컨텐츠
-                          페인트)와 LCP(최대 컨텐츠 페인트)를 각각 0.5s로
+                          페인트)와 LCP(최대 컨텐츠 페인트)를 각각 0.4s로
                           단축하여 평균 99점을 달성했으며, 부하 테스트(VUs
                           1000)에서 평균 응답속도 18.77ms의 성능을
                           실현하였습니다.
