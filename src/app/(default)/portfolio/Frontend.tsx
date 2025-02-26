@@ -34,9 +34,8 @@ export default function Frontend() {
               - 클라이언트의 모든 요청은 Next Server를 거치도록 설계하였습니다.
             </p>
             <p>
-              - 로그인 유지 및 유저 권한이 필요한 API 요청에 필요한 정보를
-              NextAuth JWE로 암호화하여 HttpOnly 쿠키로 전달하도록
-              설계하였습니다.
+              - 로그인 유지 및 유저 권한이 필요한 API 요청에 필요한 정보가 담긴
+              JWE를 HttpOnly 쿠키로 전달하도록 설계하였습니다.
             </p>
           </li>
           <li>

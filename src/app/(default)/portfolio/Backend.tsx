@@ -180,9 +180,8 @@ export default function Backend() {
         <li>
           <h3 className="text-base md:text-xl font-bold">모니터링 및 로깅</h3>
           <p>
-            도커를 통한 로그 확인 : 현재 ec2 프리티어의 인스턴스인 t2.micro를
-            사용중입니다. 단일 코어로 성능이 제한적이기 때문에 pm2는 리소스 낭비
-            및 복잡도 증가라 판단하여 도커를 통하여 로그를 확인하고있습니다.
+            도커를 통한 로그 확인 : EC2 프리티어 인스턴스(t2.micro)의 단일 코어
+            제약을 고려하여, PM2 대신 도커 컨테이너 로그를 직접 활용하였습니다.
           </p>
         </li>
       </ul>
