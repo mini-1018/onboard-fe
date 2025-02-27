@@ -5,13 +5,20 @@ import MyPostList from "@/app/(nav)/myboard/MyPostList";
 import { getPostsByUserId } from "@/entities/post/api/post";
 import { Suspense } from "react";
 import PostListSkeletonTemplate from "@/entities/post/ui/PostListSkeletonTemplate";
+import { cookies } from "next/headers";
 
 export default async function MyBoard() {
   const session = await getServerSession(authOptions);
-  const initialData = await getPostsByUserId({
-    limit: 5,
-    orderBy: "latest",
-  });
+  const cookieStore = await cookies();
+  const token = cookieStore.get("next-auth.session-token");
+  const headers = { Cookie: `next-auth.session-token=${token?.value}` };
+  const initialData = await getPostsByUserId(
+    {
+      limit: 5,
+      orderBy: "latest",
+    },
+    headers
+  );
   return (
     <>
       <div className="flex flex-col items-center justify-center">
