@@ -5,8 +5,11 @@ export const getPosts = async (params?: GetPostsParams) => {
   return request("get", "/posts", undefined, { params });
 };
 
-export const getPostsByUserId = async (params: GetPostsParams) => {
-  return request("get", `/users/posts`, undefined, { params });
+export const getPostsByUserId = async (
+  params: GetPostsParams,
+  headers?: Record<string, string>
+) => {
+  return request("get", `/users/posts`, undefined, { params, headers });
 };
 
 export const getPostById = async (id: string) => {
