@@ -8,7 +8,7 @@ import PostListSkeletonTemplate from "@/entities/post/ui/PostListSkeletonTemplat
 
 export default async function MyBoard() {
   const session = await getServerSession(authOptions);
-  const initialData = await getPostsByUserId(Number(session?.user?.id), {
+  const initialData = await getPostsByUserId({
     limit: 5,
     orderBy: "latest",
   });
