@@ -28,13 +28,15 @@ export const useGetPostsInfiniteQuery = (
       });
       return response;
     },
-    getNextPageParam: (lastPage) => {
+    getNextPageParam: (lastPage: PostResponse) => {
       return lastPage.hasNextPage ? lastPage.nextCursor : undefined;
     },
-    initialData: {
-      pages: [initialData],
-      pageParams: [undefined],
-    },
+    initialData: initialData
+      ? {
+          pages: [initialData],
+          pageParams: [undefined],
+        }
+      : undefined,
     initialPageParam: undefined,
     staleTime: 1000 * 60 * 5,
   });
@@ -52,7 +54,7 @@ export const useSearchPostsInfiniteQuery = (search: string) => {
       });
       return response;
     },
-    getNextPageParam: (lastPage) => {
+    getNextPageParam: (lastPage: PostResponse) => {
       return lastPage.hasNextPage ? lastPage.nextCursor : undefined;
     },
     initialPageParam: undefined,
@@ -62,14 +64,13 @@ export const useSearchPostsInfiniteQuery = (search: string) => {
 };
 
 export const useGetPostsByUserIdInfiniteQuery = (
-  userId: number,
   initialData?: PostResponse,
   search?: string
 ) => {
   return useInfiniteQuery({
-    queryKey: QueryKeys.MY_POSTS(userId, search),
+    queryKey: QueryKeys.MY_POSTS(search),
     queryFn: async ({ pageParam = undefined }) => {
-      const response = await getPostsByUserId(userId, {
+      const response = await getPostsByUserId({
         cursor: pageParam,
         limit: 5,
         orderBy: "latest",
@@ -77,15 +78,17 @@ export const useGetPostsByUserIdInfiniteQuery = (
       });
       return response;
     },
-    getNextPageParam: (lastPage) => {
+    getNextPageParam: (lastPage: PostResponse) => {
       return lastPage.hasNextPage ? lastPage.nextCursor : undefined;
     },
     initialData: search
       ? undefined
-      : {
+      : initialData
+      ? {
           pages: [initialData],
           pageParams: [undefined],
-        },
+        }
+      : undefined,
     initialPageParam: undefined,
     staleTime: 1000 * 60 * 5,
   });

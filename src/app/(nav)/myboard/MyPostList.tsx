@@ -2,11 +2,10 @@
 import SearchInput from "@/shared/components/inputs/SearchInput";
 import { FaClipboard } from "react-icons/fa";
 import { useGetPostsByUserIdInfiniteQuery } from "@/entities/post/api/useGetPostsQuery";
-import { useSession } from "next-auth/react";
-import { Post, PostResponse } from "@/shared/types";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import PostListTemplate from "@/entities/post/ui/PostListTemplate";
+import { Post, PostResponse } from "@/shared/types";
 
 export default function MyPostList({
   initialData,
@@ -15,10 +14,8 @@ export default function MyPostList({
 }) {
   const [search, setSearch] = useState("");
   const { ref, inView } = useInView();
-  const { data: session } = useSession();
-  const userId = Number(session?.user?.id);
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useGetPostsByUserIdInfiniteQuery(userId, initialData, search);
+    useGetPostsByUserIdInfiniteQuery(initialData, search);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
