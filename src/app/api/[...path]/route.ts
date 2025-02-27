@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 async function handler(request: NextRequest) {
   const url = new URL(request.url);
-  const path = url.pathname.replace("/api/", "");
+  const path = url.pathname.replace(/^\/api(?=\/)/, "");
   const method = request.method.toLowerCase();
 
   try {
@@ -12,11 +12,6 @@ async function handler(request: NextRequest) {
     const config = {
       headers,
     };
-
-    console.log(
-      "Attempting backend request to:",
-      process.env.BACKEND_URL + "/" + path
-    );
 
     let body;
     if (!["get", "head", "delete"].includes(method)) {
@@ -35,10 +30,7 @@ async function handler(request: NextRequest) {
       ...config,
     });
 
-    console.log("Backend response:", response?.status, response?.data);
-
     if (!response || !response.data) {
-      console.error("Invalid response:", response);
       throw new Error("Invalid response from server");
     }
 
