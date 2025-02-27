@@ -5,12 +5,14 @@ async function handler(request: NextRequest) {
   const url = new URL(request.url);
   const path = url.pathname.replace(/^\/api(?=\/)/, "");
   const method = request.method.toLowerCase();
+  const searchParams = url.searchParams;
 
   try {
     const headers = Object.fromEntries(request.headers);
     delete headers.host;
     const config = {
       headers,
+      params: Object.fromEntries(searchParams.entries()),
     };
 
     let body;
