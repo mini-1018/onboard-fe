@@ -18,7 +18,7 @@ OnBoard는 개발자들이 코딩 과정에서 겪은 문제나 고민을 공유
 ![Zod](https://img.shields.io/badge/zod-%233068b7.svg?style=for-the-badge&logo=zod&logoColor=white)
 
 ## 3. Architecture
-![image](https://github.com/user-attachments/assets/44324365-bcec-442a-b35b-83aa89e897fe)
+![image](https://mini1018-image.s3.ap-northeast-2.amazonaws.com/profiles/frontA.png)
 
 ## 4. feature
 1. SSR 데이터 최적화
@@ -26,5 +26,3 @@ OnBoard는 개발자들이 코딩 과정에서 겪은 문제나 고민을 공유
 3. 상태 관리 최적화(zustand, react query)
 4. 이미지 및 SEO 최적화
 5. 반응형 디자인
-- 성능 지표  
-![image](https://github.com/user-attachments/assets/365959a6-4965-4cda-813d-8d9b683f88f7)
