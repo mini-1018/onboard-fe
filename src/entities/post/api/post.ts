@@ -2,14 +2,11 @@ import { GetPostsParams, PostData } from "@/shared/types";
 import { request } from "@/shared/api/request";
 
 export const getPosts = async (params?: GetPostsParams) => {
-  return request("get", "/posts", undefined, { params });
+  return request("get", "/posts", { params });
 };
 
-export const getPostsByUserId = async (
-  userId: number,
-  params: GetPostsParams
-) => {
-  return request("get", `/users/${userId}/posts`, undefined, { params });
+export const getPostsByUserId = async (params: GetPostsParams) => {
+  return request("get", `/users/posts`, { params });
 };
 
 export const getPostById = async (id: string) => {
