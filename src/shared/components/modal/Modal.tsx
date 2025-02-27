@@ -7,7 +7,7 @@ export default function Modal({
 }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-5 rounded-md shadow-md w-full max-w-sm relative">
+      <div className="bg-white p-5 rounded-md shadow-md w-[340px] md:w-[440px] relative">
         {children}
         <button
           onClick={closeModal}
